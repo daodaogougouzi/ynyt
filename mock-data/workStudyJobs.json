@@ -1,0 +1,81 @@
+[
+  {
+    "id": "job-library-assistant",
+    "title": "图书馆借阅助理",
+    "department": "图书馆",
+    "location": "图书馆一楼服务台",
+    "salaryPerHour": 20,
+    "weeklyHoursMax": 8,
+    "monthlyHoursMax": 40,
+    "requiredMajors": [],
+    "requiredSkills": [
+      "沟通",
+      "信息录入"
+    ],
+    "shiftSlots": [
+      "周一 19:00-21:00",
+      "周三 19:00-21:00",
+      "周五 19:00-21:00"
+    ],
+    "tags": [
+      "校内",
+      "晚间",
+      "稳定"
+    ],
+    "openForApply": true,
+    "description": "负责借还书登记、秩序维护与读者咨询。"
+  },
+  {
+    "id": "job-lab-data-entry",
+    "title": "实验数据整理助理",
+    "department": "医学技术学院实验中心",
+    "location": "实验楼A302",
+    "salaryPerHour": 22,
+    "weeklyHoursMax": 6,
+    "monthlyHoursMax": 24,
+    "requiredMajors": [
+      "医学检验技术",
+      "预防医学"
+    ],
+    "requiredSkills": [
+      "Excel",
+      "细致"
+    ],
+    "shiftSlots": [
+      "周二 14:30-17:30",
+      "周四 14:30-17:30"
+    ],
+    "tags": [
+      "校内",
+      "专业相关"
+    ],
+    "openForApply": true,
+    "description": "协助老师完成实验台账录入和数据清洗。"
+  },
+  {
+    "id": "job-admin-support",
+    "title": "学院行政事务助理",
+    "department": "学生工作办公室",
+    "location": "行政楼208",
+    "salaryPerHour": 19.8,
+    "weeklyHoursMax": 8,
+    "monthlyHoursMax": 32,
+    "requiredMajors": [],
+    "requiredSkills": [
+      "办公软件",
+      "沟通",
+      "责任心"
+    ],
+    "shiftSlots": [
+      "周一 15:00-17:00",
+      "周三 15:00-17:00",
+      "周五 15:00-17:00"
+    ],
+    "tags": [
+      "校内",
+      "白天"
+    ],
+    "openForApply": true,
+    "description": "协助通知整理、资料归档与活动签到。"
+  }
+]

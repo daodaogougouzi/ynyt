@@ -1,0 +1,36 @@
+<svg width="800" height="680" viewBox="0 0 800 680" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skyProsperous" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d5ecff"/>
+      <stop offset="58%" stop-color="#edfaff"/>
+      <stop offset="100%" stop-color="#d7edd7"/>
+    </linearGradient>
+    <radialGradient id="leafProsperous" cx="50%" cy="52%" r="70%">
+      <stop offset="0%" stop-color="#9dde8c"/>
+      <stop offset="72%" stop-color="#63b75b"/>
+      <stop offset="100%" stop-color="#418d49"/>
+    </radialGradient>
+    <linearGradient id="trunkProsperous" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b87945"/>
+      <stop offset="100%" stop-color="#70442a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="680" rx="32" fill="url(#skyProsperous)"/>
+  <ellipse cx="400" cy="630" rx="392" ry="86" fill="#63bb67" opacity="0.95"/>
+  <path d="M354 612 C372 526 384 436 394 196 C396 152 410 152 412 196 C422 436 434 526 452 612 Z" fill="url(#trunkProsperous)"/>
+  <path d="M398 452 C292 430 188 384 90 296" stroke="#875733" stroke-width="26" stroke-linecap="round" fill="none"/>
+  <path d="M406 448 C510 424 614 378 710 288" stroke="#875733" stroke-width="26" stroke-linecap="round" fill="none"/>
+  <path d="M388 352 C330 306 278 252 224 170" stroke="#8f5f39" stroke-width="18" stroke-linecap="round" fill="none"/>
+  <path d="M418 348 C474 302 528 248 586 166" stroke="#8f5f39" stroke-width="18" stroke-linecap="round" fill="none"/>
+  <ellipse cx="400" cy="200" rx="300" ry="186" fill="url(#leafProsperous)"/>
+  <ellipse cx="202" cy="318" rx="176" ry="114" fill="#77c870"/>
+  <ellipse cx="600" cy="310" rx="192" ry="120" fill="#70c36a"/>
+  <ellipse cx="400" cy="108" rx="168" ry="96" fill="#d8f7ca" opacity="0.78"/>
+  <circle cx="232" cy="266" r="12" fill="#f18ba0"/>
+  <circle cx="284" cy="220" r="13" fill="#f6cb66"/>
+  <circle cx="344" cy="172" r="11" fill="#f5a4c9"/>
+  <circle cx="454" cy="176" r="12" fill="#f59a7d"/>
+  <circle cx="526" cy="226" r="12" fill="#f2b24f"/>
+  <circle cx="592" cy="280" r="10" fill="#d78ad9"/>
+  <circle cx="640" cy="330" r="11" fill="#f5be5d"/>
+</svg>

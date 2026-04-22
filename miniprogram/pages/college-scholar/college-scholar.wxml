@@ -1,0 +1,124 @@
+<view class="college-page">
+  <navigation-bar back="{{false}}" background="#F5F7FA" color="#2D3A4B" title="学院奖助学金"></navigation-bar>
+
+  <scroll-view class="college-scroll" scroll-y>
+    <view class="container-page">
+      <view class="card binding-card">
+        <view class="binding-head">
+          <view>
+            <view class="section-title">绑定学院</view>
+            <text class="binding-subtitle">学院奖助学金按已绑定学院展示</text>
+          </view>
+          <text class="binding-state {{hasBoundCollege ? 'bound' : 'unbound'}}">{{hasBoundCollege ? '已绑定' : '未绑定'}}</text>
+        </view>
+        <view class="binding-panel" bindtap="onCollegeChange">
+          <text class="binding-label">当前学院</text>
+          <text class="binding-value {{!hasBoundCollege ? 'placeholder' : ''}}">{{currentCollegeName || '请先到“我的”中绑定学院'}}</text>
+          <text class="binding-tip">{{hasBoundCollege ? '如需修改，请前往“我的”页面重新绑定学院' : '点击查看绑定提示'}}</text>
+        </view>
+      </view>
+
+      <view class="card" wx:if="{{student}}">
+        <view class="section-title">当前认定状态</view>
+        <view class="student-tag-row">
+          <text class="tag {{student.currentRecognitionLevel === '未认定' ? '' : 'tag-success'}}">{{student.currentRecognitionLevel}}</text>
+          <text class="student-tip">认定等级：{{student.currentRecognitionLevel}}</text>
+        </view>
+      </view>
+
+      <view class="card">
+        <view class="section-title">奖助类型筛选</view>
+        <view class="type-tabs">
+          <view
+            wx:for="{{typeTabs}}"
+            wx:key="*this"
+            class="type-tab {{activeType === item ? 'active' : ''}}"
+            data-type="{{item}}"
+            bindtap="onTypeTabTap"
+          >
+            {{item}}
+          </view>
+        </view>
+      </view>
+
+      <view class="card">
+        <view class="section-title">奖助列表</view>
+        <text wx:if="{{loading}}" class="empty-tip">正在加载奖助项目...</text>
+        <text wx:if="{{!loading && !hasBoundCollege}}" class="empty-tip">请先到“我的”页面绑定学院后再查看学院奖助学金。</text>
+        <block wx:if="{{!loading && hasBoundCollege && displayItems.length > 0}}">
+          <block wx:for="{{displayItems}}" wx:key="id">
+            <view class="scholar-card" bindtap="onOpenDetail" data-id="{{item.id}}">
+              <view class="scholar-head">
+                <view class="scholar-main">
+                  <text class="scholar-name">{{item.name}}</text>
+                  <text class="scholar-sponsor">{{item.sponsor}}</text>
+                </view>
+                <view
+                  class="favorite-btn {{favoriteIds.indexOf(item.id) > -1 ? 'active' : ''}}"
+                  catchtap="onToggleFavorite"
+                  data-id="{{item.id}}"
+                >
+                  ❤
+                </view>
+              </view>
+              <view class="scholar-tag-row">
+                <text class="tag">{{item.type}}</text>
+                <text class="tag">{{item.amountText}}</text>
+                <text class="tag {{item.openForApply ? 'tag-success' : 'tag-danger'}}">{{item.openForApply ? '可申请' : '未开放'}}</text>
+              </view>
+              <text class="scholar-meta" wx:if="{{item.collegeKey}}">所属学院：{{item.collegeName || '学院专属'}}</text>
+              <text class="scholar-meta" wx:else>所属范围：全校通用</text>
+              <text class="scholar-meta">名额：{{item.quota}}</text>
+              <text class="scholar-meta">资格说明：{{item.restrictionNote}}</text>
+              <text class="scholar-deadline">截止日期：{{item.deadline}}</text>
+            </view>
+          </block>
+        </block>
+        <text wx:if="{{!loading && hasBoundCollege && displayItems.length === 0}}" class="empty-tip">当前筛选条件下暂无可展示的奖助项目。</text>
+      </view>
+
+      <view class="card" wx:if="{{hasBoundCollege && deadlineReminderList.length > 0}}">
+        <view class="section-title">截止提醒</view>
+        <view wx:if="{{nearestDeadlineReminder}}" class="deadline-highlight">
+          <text class="deadline-highlight-title">最近截止：{{nearestDeadlineReminder.scholarshipName}}</text>
+          <text class="deadline-highlight-meta">剩余约 {{nearestDeadlineReminder.hoursLeft}} 小时 · {{nearestDeadlineReminder.deadline}}</text>
+        </view>
+        <view class="deadline-item" wx:for="{{deadlineReminderList}}" wx:key="id">
+          <text class="deadline-name">{{item.scholarshipName}}</text>
+          <text class="deadline-meta">截止：{{item.deadline}}</text>
+          <text class="deadline-meta">剩余约 {{item.hoursLeft}} 小时 · 生成于 {{item.createdAtText}}</text>
+        </view>
+      </view>
+
+      <view class="card">
+        <button class="secondary-btn" bindtap="openAiPanel">AI 咨询学院奖助问题</button>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view wx:if="{{showDetail}}" class="detail-mask" bindtap="onCloseDetail"></view>
+  <view wx:if="{{showDetail && detailItem}}" class="detail-panel">
+    <view class="detail-header">
+      <text class="detail-title">{{detailItem.name}}</text>
+      <text class="detail-close" bindtap="onCloseDetail">关闭</text>
+    </view>
+    <scroll-view class="detail-body" scroll-y>
+      <text class="detail-block">资助方：{{detailItem.sponsor}}</text>
+      <text class="detail-block">类型：{{detailItem.type}}</text>
+      <text class="detail-block">金额：{{detailItem.amountText}}</text>
+      <text class="detail-block">名额：{{detailItem.quota}}</text>
+      <text class="detail-block">资格说明：{{detailEligibilityText}}</text>
+      <text class="detail-block">截止日期：{{detailItem.deadline}}</text>
+      <text class="detail-block">申请条件：{{detailItem.conditions.join('、')}}</text>
+      <view wx:if="{{detailItem.amountTiers.length > 0}}" class="tier-wrap">
+        <text class="detail-guide-title">金额明细</text>
+        <text class="detail-block" wx:for="{{detailItem.amountTiers}}" wx:key="label">{{item.label}}：{{item.amount}}（{{item.note}}）</text>
+      </view>
+      <text class="detail-guide-title">完整申报指引</text>
+      <text class="detail-guide">{{detailItem.guide}}</text>
+      <button class="primary-btn detail-btn" bindtap="onGoPolicyDetail">查看完整详情 / 立即申请</button>
+    </scroll-view>
+  </view>
+
+  <ai-chat id="collegeAiChat" scene="scholarship" entry-only="{{true}}" bindinvite="openAiPanel"></ai-chat>
+</view>

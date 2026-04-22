@@ -1,0 +1,16 @@
+<view class="simple-page">
+  <navigation-bar back="{{true}}" background="#F5F7FA" color="#2D3A4B" title="我的评估记录"></navigation-bar>
+
+  <scroll-view class="simple-scroll" scroll-y>
+    <view class="container-page">
+      <view class="card" wx:for="{{list}}" wx:key="id">
+        <text class="item-time">{{item.time}}</text>
+        <text class="item-main">{{item.text}}</text>
+        <text class="item-sub">{{item.college}} · {{item.grade}} · 排名{{item.ranking}}% · 绩点{{item.gpa}}</text>
+      </view>
+      <view class="card" wx:if="{{list.length === 0}}">
+        <text class="empty-tip">暂无评估记录。</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

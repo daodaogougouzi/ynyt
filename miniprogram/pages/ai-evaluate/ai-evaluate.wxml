@@ -1,0 +1,320 @@
+<view class="evaluate-page">
+  <navigation-bar back="{{false}}" background="#F5F7FA" color="#2D3A4B" title="AI 智能奖助适配评估"></navigation-bar>
+
+  <scroll-view class="evaluate-scroll" scroll-y>
+    <view class="container-page">
+      <view class="card" wx:if="{{!hasStudentSession}}">
+        <view class="section-title">登录后可用</view>
+        <text class="help-text">AI 评估、困难认定申请、个人认定状态和申请记录都需要先登录学生账号。</text>
+        <button class="primary-btn" bindtap="openLogin">前往登录</button>
+      </view>
+
+      <block wx:if="{{hasStudentSession}}">
+        <view class="card tab-card">
+          <view class="tab-row">
+            <view class="tab-item {{activeTab === 'evaluate' ? 'active' : ''}}" data-tab="evaluate" bindtap="onSwitchTab">奖助适配评估</view>
+            <view class="tab-item {{activeTab === 'recognition' ? 'active' : ''}}" data-tab="recognition" bindtap="onSwitchTab">困难认定申请</view>
+          </view>
+        </view>
+
+        <block wx:if="{{activeTab === 'evaluate'}}">
+        <view class="card">
+          <view class="section-title">基础信息填写</view>
+
+          <view class="form-group">
+            <text class="form-label">所属学院</text>
+            <picker mode="selector" range="{{collegeOptions}}" value="{{collegeIndex}}" bindchange="onCollegeChange">
+              <view class="form-picker">{{form.college}}</view>
+            </picker>
+          </view>
+
+          <view class="form-group">
+            <text class="form-label">年级</text>
+            <picker mode="selector" range="{{gradeOptions}}" value="{{gradeIndex}}" bindchange="onGradeChange">
+              <view class="form-picker">{{form.grade}}</view>
+            </picker>
+          </view>
+
+          <view class="form-group">
+            <text class="form-label">学业排名（%）</text>
+            <input class="form-input" placeholder="例：30" value="{{form.ranking}}" type="number" bindinput="onRankingInput" />
+          </view>
+
+          <view class="form-group">
+            <text class="form-label">平均绩点</text>
+            <input class="form-input" placeholder="例：3.5" value="{{form.gpa}}" type="digit" bindinput="onGpaInput" />
+          </view>
+
+          <view class="form-group">
+            <text class="form-label">家庭经济情况</text>
+            <radio-group class="radio-row" bindchange="onFamilyChange">
+              <label class="radio-item" wx:for="{{familyOptions}}" wx:key="*this">
+                <radio value="{{item}}" checked="{{form.family === item}}" color="#4A90E2" />
+                <text>{{item}}</text>
+              </label>
+            </radio-group>
+          </view>
+
+          <view class="form-group">
+            <text class="form-label">户籍情况</text>
+            <radio-group class="radio-row" bindchange="onHouseholdChange">
+              <label class="radio-item" wx:for="{{householdOptions}}" wx:key="*this">
+                <radio value="{{item}}" checked="{{form.household === item}}" color="#4A90E2" />
+                <text>{{item}}</text>
+              </label>
+            </radio-group>
+          </view>
+
+          <view class="form-group">
+            <text class="form-label">是否获得过校级及以上奖励</text>
+            <radio-group class="radio-row" bindchange="onAwardChange">
+              <label class="radio-item" wx:for="{{awardOptions}}" wx:key="*this">
+                <radio value="{{item}}" checked="{{form.hasAward === item}}" color="#4A90E2" />
+                <text>{{item}}</text>
+              </label>
+            </radio-group>
+          </view>
+
+          <view class="form-group">
+            <text class="form-label">评审学年是否无不及格科目</text>
+            <radio-group class="radio-row" bindchange="onNoFailChange">
+              <label class="radio-item" wx:for="{{noFailOptions}}" wx:key="*this">
+                <radio value="{{item}}" checked="{{form.noFailCourse === item}}" color="#4A90E2" />
+                <text>{{item}}</text>
+              </label>
+            </radio-group>
+          </view>
+
+          <view class="form-group">
+            <text class="form-label">近一年是否存在突发困难</text>
+            <radio-group class="radio-row" bindchange="onEmergencyChange">
+              <label class="radio-item" wx:for="{{emergencyOptions}}" wx:key="*this">
+                <radio value="{{item}}" checked="{{form.suddenHardship === item}}" color="#4A90E2" />
+                <text>{{item}}</text>
+              </label>
+            </radio-group>
+          </view>
+
+          <view class="form-group">
+            <text class="form-label">家庭经济困难认定类型</text>
+            <view class="form-picker readonly-picker">{{currentRecognitionLabel}}</view>
+            <view class="recognition-tip">
+              <text class="recognition-title">当前认定说明</text>
+              <text class="recognition-text">{{currentRecognitionEvidence}}</text>
+              <text class="recognition-warning">{{recognitionWarning}}</text>
+            </view>
+          </view>
+
+          <button class="primary-btn" bindtap="onStartEvaluate">开始智能评估</button>
+        </view>
+
+        <view class="card" wx:if="{{hasEvaluated && evaluateResult}}">
+          <view class="section-title">评估结果</view>
+          <view class="result-head">
+            <text class="tag {{evaluateResult.primaryStatus === 'success' ? 'tag-success' : 'tag-danger'}}">
+              {{evaluateResult.primaryStatus === 'success' ? '符合' : '待完善'}}
+            </text>
+            <text class="result-text">{{evaluateResult.primaryText}}</text>
+          </view>
+
+          <view class="rule-list">
+            <view class="rule-item" wx:for="{{evaluateResult.results}}" wx:key="name">
+              <view class="rule-header">
+                <text class="rule-name">{{item.name}}</text>
+                <text class="tag {{item.matched ? 'tag-success' : 'tag-danger'}}">{{item.matched ? '符合' : '不符合'}}</text>
+              </view>
+              <text class="rule-reason">{{item.reason}}</text>
+            </view>
+          </view>
+        </view>
+
+        <view class="card" wx:if="{{hasEvaluated && evaluateResult}}">
+          <view class="section-title">适配奖助推荐</view>
+          <text wx:if="{{recommendationSummaryText}}" class="recommend-summary">{{recommendationSummaryText}}</text>
+          <block wx:if="{{evaluateResult.recommendedList.length > 0}}">
+            <view
+              class="recommend-item"
+              wx:for="{{evaluateResult.recommendedList}}"
+              wx:key="name"
+              data-id="{{item.id}}"
+              data-name="{{item.name}}"
+              bindtap="onOpenRecommendedScholarship"
+            >
+              <view class="recommend-head">
+                <text class="recommend-name">{{item.name}}</text>
+                <text class="recommend-score" wx:if="{{item.score !== undefined}}">{{item.score}}分</text>
+              </view>
+              <text class="recommend-match" wx:if="{{item.matchLevel}}">匹配等级：{{item.matchLevel}}</text>
+              <text class="recommend-reason">{{item.reason}}</text>
+              <text class="recommend-link">查看详情并申请</text>
+            </view>
+          </block>
+          <text wx:else class="empty-tip">暂无可直接申请项目，建议结合学院通知持续关注。</text>
+        </view>
+
+        <view class="card">
+          <view class="section-title">历史评估记录（最近3次）</view>
+          <block wx:if="{{historyList.length > 0}}">
+            <view class="history-item" wx:for="{{historyList}}" wx:key="id">
+              <view class="history-top">
+                <text class="history-time">{{item.time}}</text>
+                <text class="tag {{item.status === 'success' ? 'tag-success' : 'tag-danger'}}">
+                  {{item.status === 'success' ? '符合' : '待完善'}}
+                </text>
+              </view>
+              <text class="history-main">{{item.college}} · {{item.grade}} · 排名{{item.ranking}}% · 绩点{{item.gpa}}</text>
+              <text class="history-result">{{item.text}}</text>
+            </view>
+          </block>
+          <text wx:else class="empty-tip">暂无评估记录，填写信息后点击“开始智能评估”。</text>
+        </view>
+      </block>
+
+      <block wx:if="{{activeTab === 'recognition'}}">
+        <view class="card" wx:if="{{!currentStudent}}">
+          <view class="section-title">登录后可用</view>
+          <text class="help-text">困难认定申请、个人认定状态、申请记录与材料上传都需要先登录学生账号。</text>
+          <button class="primary-btn" bindtap="openLogin">前往登录</button>
+        </view>
+        <view class="card" wx:if="{{currentStudent}}">
+          <view class="section-title">当前认定状态</view>
+          <view class="status-row">
+            <text class="tag">{{currentStudent.currentRecognitionStatus}}</text>
+            <text class="tag {{currentStudent.currentRecognitionLevel === '未认定' ? '' : 'tag-success'}}">{{currentStudent.currentRecognitionLevel}}</text>
+          </view>
+          <text class="help-text">当前认定等级：{{currentStudent.currentRecognitionLevel}}</text>
+          <text wx:if="{{currentStudent.confirmedRecognitionLabels.length > 0}}" class="help-text">已确认类型：{{currentStudent.confirmedRecognitionLabels.join('、')}}</text>
+        </view>
+
+        <view class="card" wx:if="{{recognitionLoading}}">
+          <text class="empty-tip">正在加载认定申请数据...</text>
+        </view>
+
+        <block wx:if="{{!recognitionLoading}}">
+          <view class="card" wx:if="{{recognitionReadonlyText}}">
+            <view class="section-title">申请状态说明</view>
+            <text class="help-text">{{recognitionReadonlyText}}</text>
+          </view>
+
+          <view class="card" wx:if="{{!recognitionReadonly}}">
+            <view class="section-title">基础信息</view>
+            <view class="form-group">
+              <text class="form-label">学号</text>
+              <input class="form-input" data-field="studentNo" value="{{profile.studentNo}}" bindinput="onProfileInput" />
+            </view>
+            <view class="form-group">
+              <text class="form-label">姓名</text>
+              <input class="form-input" data-field="name" value="{{profile.name}}" bindinput="onProfileInput" />
+            </view>
+            <view class="form-group">
+              <text class="form-label">学院</text>
+              <input class="form-input" data-field="college" value="{{profile.college}}" bindinput="onProfileInput" />
+            </view>
+            <view class="form-group">
+              <text class="form-label">专业</text>
+              <input class="form-input" data-field="major" value="{{profile.major}}" bindinput="onProfileInput" />
+            </view>
+            <view class="form-group">
+              <text class="form-label">班级</text>
+              <input class="form-input" data-field="className" value="{{profile.className}}" bindinput="onProfileInput" />
+            </view>
+            <view class="form-group">
+              <text class="form-label">年级</text>
+              <input class="form-input" data-field="grade" value="{{profile.grade}}" bindinput="onProfileInput" />
+            </view>
+            <view class="form-group no-margin">
+              <text class="form-label">联系方式</text>
+              <input class="form-input" data-field="phone" value="{{profile.phone}}" bindinput="onProfileInput" />
+            </view>
+          </view>
+
+          <view class="card" wx:if="{{!recognitionReadonly}}">
+            <view class="section-title">家庭认定信息</view>
+            <text class="help-text">请勾选符合本人家庭情况的认定项，系统将按广东省认定规则预估分值与困难等级。</text>
+            <view class="recognition-rule-list">
+              <view
+                class="recognition-rule {{selectedRuleIdMap[item.id] ? 'active' : ''}}"
+                wx:for="{{recognitionRules}}"
+                wx:key="id"
+                data-id="{{item.id}}"
+                bindtap="onToggleRule"
+              >
+                <checkbox
+                  class="recognition-rule-checkbox"
+                  checked="{{selectedRuleIdMap[item.id]}}"
+                  color="#4A90E2"
+                  data-id="{{item.id}}"
+                  catchtap="onToggleRule"
+                />
+                <view class="recognition-rule-body">
+                  <view class="recognition-rule-head">
+                    <text class="recognition-rule-title">{{item.no}}. {{item.label}}</text>
+                  </view>
+                  <text class="recognition-rule-evidence">材料：{{item.evidence}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+
+          <view class="card" wx:if="{{!recognitionReadonly}}">
+            <view class="section-title">材料清单</view>
+            <block wx:if="{{selectedMaterials.length > 0}}">
+              <text class="condition-item" wx:for="{{selectedMaterials}}" wx:key="*this">• {{item}}</text>
+            </block>
+            <text wx:else class="empty-tip">勾选认定项后，这里会自动汇总建议提交的佐证材料。</text>
+            <view class="attachment-actions">
+              <button class="secondary-btn attachment-btn" bindtap="onChooseAttachments">上传附件</button>
+              <text class="help-text">支持上传图片、PDF、Word、Excel 等材料，最多 5 个。</text>
+            </view>
+            <view wx:if="{{attachmentList.length > 0}}" class="attachment-list">
+              <view class="attachment-item" wx:for="{{attachmentList}}" wx:key="id">
+                <view class="attachment-meta">
+                  <text class="attachment-name">{{item.name}}</text>
+                  <text class="attachment-size">{{item.sizeLabel}}</text>
+                </view>
+                <text class="attachment-remove" data-id="{{item.id}}" bindtap="onRemoveAttachment">移除</text>
+              </view>
+            </view>
+          </view>
+
+          <view class="card" wx:if="{{!recognitionReadonly}}">
+            <view class="section-title">补充说明</view>
+            <textarea class="form-textarea" placeholder="可补充家庭突发情况、老师需重点关注的信息。" value="{{supplementalNote}}" bindinput="onSupplementalNoteInput"></textarea>
+            <text class="recognition-warning">37 项“其他特殊情况加分”和 38 项“虚假材料清零”由老师审核时决定。</text>
+          </view>
+
+          <view class="card" wx:if="{{recognitionPreview && !recognitionReadonly}}">
+            <view class="section-title">系统预估结果</view>
+            <view class="preview-grid">
+              <view class="preview-item wide">
+                <text class="preview-label">系统建议等级</text>
+                <text class="preview-value">{{recognitionPreview.level.label}}</text>
+              </view>
+            </view>
+          </view>
+
+          <view class="card" wx:if="{{recognitionHistory.length > 0}}">
+            <view class="section-title">我的认定申请记录</view>
+            <view class="history-item" wx:for="{{recognitionHistory}}" wx:key="id" data-id="{{item.id}}" bindtap="onOpenRecognitionDetail">
+              <text class="history-time">{{item.submittedAt}}</text>
+              <text class="history-text">状态：{{item.reviewStatus}}</text>
+              <text class="favorite-meta">结果：{{item.finalLevel}}</text>
+            </view>
+          </view>
+
+          <view class="card side-ai-card" wx:if="{{!recognitionReadonly}}">
+            <text class="side-ai-title">提交前还想确认？</text>
+            <button class="secondary-btn" bindtap="openAiPanel">AI 咨询认定问题</button>
+          </view>
+
+          <button class="primary-btn submit-btn" wx:if="{{!recognitionReadonly}}" bindtap="onSubmitRecognition" disabled="{{recognitionSubmitting}}">
+            {{recognitionSubmitting ? '正在提交...' : '提交困难认定申请'}}
+          </button>
+        </block>
+      </block>
+      </block>
+    </view>
+  </scroll-view>
+
+  <ai-chat id="evaluateAiChat" scene="recognition" entry-only="{{true}}" bindinvite="openAiPanel"></ai-chat>
+</view>

@@ -1,0 +1,39 @@
+<view wx:if="{{showFloatButton && !visible}}" class="ai-chat-entry" aria-role="button" aria-label="AI智能助手" bindtap="onTapInvite">
+  <text class="ai-chat-invite" wx:if="{{inviteText}}">{{inviteText}}</text>
+  <view class="ai-chat-avatar">AI</view>
+</view>
+
+<view wx:if="{{visible && !fullscreen}}" class="ai-chat-mask" bindtap="closePanel"></view>
+
+<view wx:if="{{visible}}" class="ai-chat-panel {{fullscreen ? 'fullscreen' : ''}}">
+  <view class="ai-chat-header" wx:if="{{!fullscreen}}">
+    <text class="ai-chat-title">{{panelTitle}}</text>
+    <text class="ai-chat-close" bindtap="closePanel">关闭</text>
+  </view>
+  <text class="ai-chat-status {{fullscreen ? 'fullscreen' : ''}}">{{aiStatusText}}</text>
+
+  <scroll-view class="ai-chat-body {{fullscreen ? 'fullscreen' : ''}}" scroll-y enable-flex scroll-with-animation scroll-into-view="{{scrollIntoView}}">
+    <block wx:for="{{messages}}" wx:key="id">
+      <view id="{{item.id}}" class="ai-chat-row {{item.role === 'user' ? 'user' : 'ai'}}">
+        <view class="ai-chat-bubble">{{item.content}}</view>
+      </view>
+    </block>
+    <view id="ai-loading-anchor" wx:if="{{loading}}" class="ai-chat-typing">AI 正在思考...</view>
+  </scroll-view>
+
+  <view class="ai-chat-footer {{fullscreen ? 'fullscreen' : ''}}">
+    <input class="ai-chat-input" placeholder="{{inputPlaceholder}}" value="{{inputValue}}" bindinput="onInput" />
+    <button class="ai-chat-send" bindtap="onSend" disabled="{{loading}}">发送</button>
+  </view>
+</view>
+
+<view wx:if="{{supportPromptVisible}}" class="ai-care-mask"></view>
+<view wx:if="{{supportPromptVisible}}" class="ai-care-modal">
+  <view class="ai-care-card">
+    <text class="ai-care-title">关怀提醒</text>
+    <text class="ai-care-text">{{supportPromptContent}}</text>
+    <button class="ai-care-action ai-care-action-alert" data-action="counselor" bindtap="onSupportPromptAction">一键联系辅导员</button>
+    <button class="ai-care-action ai-care-action-alert" data-action="center" bindtap="onSupportPromptAction">一键联系心理中心</button>
+    <button class="ai-care-action ai-care-action-secondary" data-action="continue" bindtap="onSupportPromptAction">先继续聊</button>
+  </view>
+</view>

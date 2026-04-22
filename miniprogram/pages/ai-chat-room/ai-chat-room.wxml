@@ -1,0 +1,12 @@
+<view class="ai-chat-room-page">
+  <navigation-bar back="{{true}}" background="#F5F7FA" color="#2D3A4B" title="{{pageTitle}}"></navigation-bar>
+
+  <view class="ai-chat-room-body">
+    <view wx:if="{{introTitle || introText}}" class="ai-chat-room-intro card">
+      <text wx:if="{{introTitle}}" class="ai-chat-room-intro-title">{{introTitle}}</text>
+      <text wx:if="{{introText}}" class="ai-chat-room-intro-text">{{introText}}</text>
+    </view>
+
+    <ai-chat id="roomAiChat" class="ai-chat-room-chat" scene="{{scene}}" greeting-text="{{chatGreeting}}" show-float-button="{{false}}" fullscreen="{{true}}"></ai-chat>
+  </view>
+</view>

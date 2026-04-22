@@ -1,0 +1,403 @@
+[
+  {
+    "studentId": "student-002",
+    "points": 0,
+    "flowers": 0,
+    "fruits": 0,
+    "stage": {
+      "key": "seed",
+      "label": "萌芽期",
+      "desc": "成长从一次次小行动开始。"
+    },
+    "nextStageHint": "再积累50积分可进入抽枝期，先从一次认定申请或心理自评开始。",
+    "events": [],
+    "updatedAt": "2026-04-12T14:06:15.069Z"
+  },
+  {
+    "studentId": "student-003",
+    "points": 0,
+    "flowers": 0,
+    "fruits": 0,
+    "stage": {
+      "key": "seed",
+      "label": "萌芽期",
+      "desc": "成长从一次次小行动开始。"
+    },
+    "nextStageHint": "再积累50积分可进入抽枝期，先从一次认定申请或心理自评开始。",
+    "events": [],
+    "updatedAt": "2026-04-11T14:24:15.789Z"
+  },
+  {
+    "studentId": "student-005",
+    "points": 0,
+    "flowers": 0,
+    "fruits": 0,
+    "stage": {
+      "key": "seed",
+      "label": "萌芽期",
+      "desc": "成长从一次次小行动开始。"
+    },
+    "nextStageHint": "再积累50积分可进入抽枝期，先从一次认定申请或心理自评开始。",
+    "events": [],
+    "updatedAt": "2026-04-10T08:40:57.472Z"
+  },
+  {
+    "studentId": "student-008",
+    "points": 0,
+    "flowers": 0,
+    "fruits": 0,
+    "stage": {
+      "key": "seed",
+      "label": "萌芽期",
+      "desc": "成长从一次次小行动开始。"
+    },
+    "nextStageHint": "再积累50积分可进入抽枝期，先从一次认定申请或心理自评开始。",
+    "events": [],
+    "updatedAt": "2026-04-09T09:02:29.729Z"
+  },
+  {
+    "studentId": "student-006",
+    "points": 35,
+    "flowers": 1,
+    "fruits": 1,
+    "stage": {
+      "key": "seed",
+      "label": "萌芽期",
+      "desc": "成长从一次次小行动开始。"
+    },
+    "nextStageHint": "再积累15积分可进入抽枝期，先从一次认定申请或心理自评开始。",
+    "events": [
+      {
+        "id": "growth-event-1775723280008-2863",
+        "actionType": "scholarshipApproved",
+        "title": "奖助申请审核通过",
+        "description": "国家助学金 审核通过",
+        "points": 35,
+        "flowerDelta": 1,
+        "fruitDelta": 1,
+        "sourceType": "scholarship-application",
+        "sourceId": "scholarship-1775723127155-8093",
+        "createdAt": "2026-04-09T08:28:00.008Z"
+      }
+    ],
+    "updatedAt": "2026-04-09T08:28:00.008Z"
+  },
+  {
+    "studentId": "student-009",
+    "points": 60,
+    "flowers": 6,
+    "fruits": 0,
+    "stage": {
+      "key": "sprout",
+      "label": "抽枝期",
+      "desc": "成长树已抽枝，继续保持就会开花结果。"
+    },
+    "nextStageHint": "再积累50积分可进入抽枝期，先从一次认定申请或心理自评开始。",
+    "events": [
+      {
+        "id": "growth-event-1775966395321-9690",
+        "actionType": "mentalAssessment",
+        "title": "完成心理自评",
+        "description": "量表自评：抑郁自评量表（SDS） 中度抑郁倾向（标准分69）",
+        "points": 10,
+        "flowerDelta": 1,
+        "fruitDelta": 0,
+        "sourceType": "emotion-event",
+        "sourceId": "emotion-event-1775966395315-220",
+        "createdAt": "2026-04-12T03:59:55.321Z"
+      },
+      {
+        "id": "growth-event-1775910393861-3606",
+        "actionType": "mentalAssessment",
+        "title": "完成心理自评",
+        "description": "量表自评：抑郁自评量表（SDS） 轻度抑郁倾向（标准分58）",
+        "points": 10,
+        "flowerDelta": 1,
+        "fruitDelta": 0,
+        "sourceType": "emotion-event",
+        "sourceId": "emotion-event-1775910393856-8280",
+        "createdAt": "2026-04-11T12:26:33.861Z"
+      },
+      {
+        "id": "growth-event-1775890330934-8863",
+        "actionType": "mentalAssessment",
+        "title": "完成心理自评",
+        "description": "量表自评：抑郁自评量表（SDS） 中度抑郁倾向（标准分65）",
+        "points": 10,
+        "flowerDelta": 1,
+        "fruitDelta": 0,
+        "sourceType": "emotion-event",
+        "sourceId": "emotion-event-1775890330928-7059",
+        "createdAt": "2026-04-11T06:52:10.934Z"
+      },
+      {
+        "id": "growth-event-1775890302963-3880",
+        "actionType": "mentalAssessment",
+        "title": "完成心理自评",
+        "description": "量表自评：抑郁自评量表（SDS） 重度抑郁倾向（标准分70）",
+        "points": 10,
+        "flowerDelta": 1,
+        "fruitDelta": 0,
+        "sourceType": "emotion-event",
+        "sourceId": "emotion-event-1775890302956-4361",
+        "createdAt": "2026-04-11T06:51:42.963Z"
+      },
+      {
+        "id": "growth-event-1775890278473-5127",
+        "actionType": "mentalAssessment",
+        "title": "完成心理自评",
+        "description": "量表自评：抑郁自评量表（SDS） 重度抑郁倾向（标准分71）",
+        "points": 10,
+        "flowerDelta": 1,
+        "fruitDelta": 0,
+        "sourceType": "emotion-event",
+        "sourceId": "emotion-event-1775890278467-8451",
+        "createdAt": "2026-04-11T06:51:18.473Z"
+      },
+      {
+        "id": "growth-event-1775889743401-9535",
+        "actionType": "mentalAssessment",
+        "title": "完成心理自评",
+        "description": "量表自评：抑郁自评量表（SDS） 轻度抑郁倾向（标准分58）",
+        "points": 10,
+        "flowerDelta": 1,
+        "fruitDelta": 0,
+        "sourceType": "emotion-event",
+        "sourceId": "emotion-event-1775889743396-290",
+        "createdAt": "2026-04-11T06:42:23.402Z"
+      }
+    ],
+    "updatedAt": "2026-04-12T03:59:55.321Z"
+  },
+  {
+    "studentId": "student-001",
+    "points": 294,
+    "flowers": 17,
+    "fruits": 13,
+    "stage": {
+      "key": "prosperous",
+      "label": "繁茂期",
+      "desc": "成长树枝繁叶茂，已经形成稳定正向循环。"
+    },
+    "nextStageHint": "你已进入繁茂期，继续记录点滴行动，稳步巩固成长成果。",
+    "events": [
+      {
+        "id": "growth-event-zhang-001",
+        "actionType": "campusMomentRecorded",
+        "title": "记录校园点滴",
+        "description": "在图书馆完成药理学复习打卡，并整理了本周学习计划。",
+        "points": 12,
+        "flowerDelta": 1,
+        "fruitDelta": 1,
+        "sourceType": "campus-moment",
+        "sourceId": "campus-moment-zhang-001",
+        "createdAt": "2026-04-10T15:54:31.156Z"
+      },
+      {
+        "id": "growth-event-zhang-002",
+        "actionType": "mentalAssessment",
+        "title": "完成心理自评",
+        "description": "量表自评：SDS（标准分59），并主动记录了近期情绪变化。",
+        "points": 10,
+        "flowerDelta": 1,
+        "fruitDelta": 0,
+        "sourceType": "emotion-event",
+        "sourceId": "emotion-event-zhang-002",
+        "createdAt": "2026-04-08T20:16:12.000Z"
+      },
+      {
+        "id": "growth-event-zhang-003",
+        "actionType": "scholarshipApproved",
+        "title": "奖助申请审核通过",
+        "description": "红珊瑚奖学金审核通过。",
+        "points": 35,
+        "flowerDelta": 1,
+        "fruitDelta": 1,
+        "sourceType": "scholarship-application",
+        "sourceId": "scholarship-zhang-003",
+        "createdAt": "2026-04-06T10:30:00.000Z"
+      },
+      {
+        "id": "growth-event-zhang-004",
+        "actionType": "campusMomentPublished",
+        "title": "校园点滴发布",
+        "description": "发布了一篇关于实验课互助的小记，收获老师点赞。",
+        "points": 12,
+        "flowerDelta": 1,
+        "fruitDelta": 1,
+        "sourceType": "campus-moment",
+        "sourceId": "campus-moment-zhang-004",
+        "createdAt": "2026-04-03T18:12:00.000Z"
+      },
+      {
+        "id": "growth-event-zhang-005",
+        "actionType": "mentalActivity",
+        "title": "参与心理活动",
+        "description": "参加学院心理减压工作坊，并完成情绪表达练习。",
+        "points": 16,
+        "flowerDelta": 1,
+        "fruitDelta": 0,
+        "sourceType": "mental-activity",
+        "sourceId": "mental-activity-zhang-005",
+        "createdAt": "2026-03-29T15:00:00.000Z"
+      },
+      {
+        "id": "growth-event-zhang-006",
+        "actionType": "recognitionApproved",
+        "title": "困难认定通过",
+        "description": "本学期成长支持认定审核通过。",
+        "points": 22,
+        "flowerDelta": 1,
+        "fruitDelta": 0,
+        "sourceType": "recognition",
+        "sourceId": "recognition-zhang-006",
+        "createdAt": "2026-03-24T09:40:00.000Z"
+      },
+      {
+        "id": "growth-event-zhang-007",
+        "actionType": "campusMomentRecorded",
+        "title": "记录校园点滴",
+        "description": "在宿舍和室友一起整理复习资料，给自己留下一次小小的鼓励。",
+        "points": 12,
+        "flowerDelta": 1,
+        "fruitDelta": 1,
+        "sourceType": "campus-moment",
+        "sourceId": "campus-moment-zhang-007",
+        "createdAt": "2026-03-19T21:08:00.000Z"
+      },
+      {
+        "id": "growth-event-zhang-008",
+        "actionType": "workStudyApproved",
+        "title": "勤工岗位申请通过",
+        "description": "实验楼数据整理助理岗位申请通过。",
+        "points": 18,
+        "flowerDelta": 0,
+        "fruitDelta": 1,
+        "sourceType": "work-study-application",
+        "sourceId": "work-study-zhang-008",
+        "createdAt": "2026-03-12T11:20:00.000Z"
+      },
+      {
+        "id": "growth-event-zhang-009",
+        "actionType": "campusMomentPublished",
+        "title": "校园点滴发布",
+        "description": "分享了一次和同学互相督促晨读的校园小事。",
+        "points": 12,
+        "flowerDelta": 1,
+        "fruitDelta": 1,
+        "sourceType": "campus-moment",
+        "sourceId": "campus-moment-zhang-009",
+        "createdAt": "2026-03-06T08:18:00.000Z"
+      },
+      {
+        "id": "growth-event-zhang-010",
+        "actionType": "scholarshipApproved",
+        "title": "奖助申请审核通过",
+        "description": "红珊瑚助学金审核通过。",
+        "points": 35,
+        "flowerDelta": 1,
+        "fruitDelta": 1,
+        "sourceType": "scholarship-application",
+        "sourceId": "scholarship-zhang-010",
+        "createdAt": "2026-02-28T14:26:00.000Z"
+      },
+      {
+        "id": "growth-event-zhang-011",
+        "actionType": "campusMomentRecorded",
+        "title": "记录校园点滴",
+        "description": "完成一次实验报告复盘，并把问题整理给老师请教。",
+        "points": 12,
+        "flowerDelta": 1,
+        "fruitDelta": 1,
+        "sourceType": "campus-moment",
+        "sourceId": "campus-moment-zhang-011",
+        "createdAt": "2026-02-20T19:32:00.000Z"
+      },
+      {
+        "id": "growth-event-zhang-012",
+        "actionType": "mentalActivity",
+        "title": "参与心理活动",
+        "description": "参加‘情绪树洞夜谈’活动，完成一次压力释放练习。",
+        "points": 16,
+        "flowerDelta": 1,
+        "fruitDelta": 0,
+        "sourceType": "mental-activity",
+        "sourceId": "mental-activity-zhang-012",
+        "createdAt": "2026-02-14T20:00:00.000Z"
+      },
+      {
+        "id": "growth-event-zhang-013",
+        "actionType": "campusMomentPublished",
+        "title": "校园点滴发布",
+        "description": "发布了春节返校后的新学期计划卡。",
+        "points": 12,
+        "flowerDelta": 1,
+        "fruitDelta": 1,
+        "sourceType": "campus-moment",
+        "sourceId": "campus-moment-zhang-013",
+        "createdAt": "2026-02-08T17:25:00.000Z"
+      },
+      {
+        "id": "growth-event-zhang-014",
+        "actionType": "recognitionApproved",
+        "title": "困难认定通过",
+        "description": "上学期成长支持认定完成归档。",
+        "points": 22,
+        "flowerDelta": 1,
+        "fruitDelta": 0,
+        "sourceType": "recognition",
+        "sourceId": "recognition-zhang-014",
+        "createdAt": "2026-01-30T09:05:00.000Z"
+      },
+      {
+        "id": "growth-event-zhang-015",
+        "actionType": "campusMomentRecorded",
+        "title": "记录校园点滴",
+        "description": "在实验课后主动帮助同学整理器材，记录了一次温暖小事。",
+        "points": 12,
+        "flowerDelta": 1,
+        "fruitDelta": 1,
+        "sourceType": "campus-moment",
+        "sourceId": "campus-moment-zhang-015",
+        "createdAt": "2026-01-22T16:40:00.000Z"
+      },
+      {
+        "id": "growth-event-zhang-016",
+        "actionType": "campusMomentPublished",
+        "title": "校园点滴发布",
+        "description": "发布了和班级同学一起准备汇报展示的照片记录。",
+        "points": 12,
+        "flowerDelta": 1,
+        "fruitDelta": 1,
+        "sourceType": "campus-moment",
+        "sourceId": "campus-moment-zhang-016",
+        "createdAt": "2026-01-15T13:12:00.000Z"
+      },
+      {
+        "id": "growth-event-zhang-017",
+        "actionType": "campusMomentRecorded",
+        "title": "记录校园点滴",
+        "description": "给自己做了一次期末复习进度打卡，完成当天任务。",
+        "points": 12,
+        "flowerDelta": 1,
+        "fruitDelta": 1,
+        "sourceType": "campus-moment",
+        "sourceId": "campus-moment-zhang-017",
+        "createdAt": "2026-01-08T21:10:00.000Z"
+      },
+      {
+        "id": "growth-event-zhang-018",
+        "actionType": "campusMomentPublished",
+        "title": "校园点滴发布",
+        "description": "发布了年末总结卡片，记录这一阶段的成长收获。",
+        "points": 12,
+        "flowerDelta": 1,
+        "fruitDelta": 1,
+        "sourceType": "campus-moment",
+        "sourceId": "campus-moment-zhang-018",
+        "createdAt": "2025-12-30T19:00:00.000Z"
+      }
+    ],
+    "updatedAt": "2026-04-10T15:54:31.156Z"
+  }
+]

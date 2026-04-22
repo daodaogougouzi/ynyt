@@ -1,0 +1,63 @@
+[
+  {
+    "id": "work-application-1775967371971-1889",
+    "studentId": "student-003",
+    "studentNo": "20250003",
+    "studentName": "陈宇航",
+    "college": "医学技术学院",
+    "major": "医学检验技术",
+    "grade": "大四",
+    "jobId": "job-library-assistant",
+    "jobTitle": "图书馆借阅助理",
+    "department": "图书馆",
+    "intro": "前台助手或者借阅助手，当过招待员，周一和周五晚上",
+    "availableSlots": [
+      "周三 19:00-21:00"
+    ],
+    "skillTags": [
+      "沟通交流"
+    ],
+    "matchScore": 63,
+    "matchLevel": "待提升",
+    "matchReasons": [
+      "岗位不限专业，可直接报名",
+      "建议在申请说明中补充岗位相关技能经历",
+      "已通过困难认定，符合勤工助学优先原则"
+    ],
+    "status": "待审核",
+    "reviewComment": "",
+    "submittedAt": "2026-04-12T04:16:11.971Z",
+    "reviewedAt": ""
+  },
+  {
+    "id": "work-application-1775889941046-147",
+    "studentId": "student-009",
+    "studentNo": "20250009",
+    "studentName": "林思涵",
+    "college": "第二临床医学院",
+    "major": "康复治疗学",
+    "grade": "大三",
+    "jobId": "job-library-assistant",
+    "jobTitle": "图书馆借阅助理",
+    "department": "图书馆",
+    "intro": "前台助手和借阅管理员，当过招待员，周一和周五晚上",
+    "availableSlots": [
+      "周五 19:00-21:00"
+    ],
+    "skillTags": [
+      "善于沟通",
+      "态度端正",
+      "细致耐心"
+    ],
+    "matchScore": 53,
+    "matchLevel": "待提升",
+    "matchReasons": [
+      "岗位不限专业，可直接报名",
+      "建议在申请说明中补充岗位相关技能经历"
+    ],
+    "status": "待审核",
+    "reviewComment": "",
+    "submittedAt": "2026-04-11T06:45:41.046Z",
+    "reviewedAt": ""
+  }
+]

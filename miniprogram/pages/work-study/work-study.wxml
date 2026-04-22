@@ -1,0 +1,117 @@
+<view class="work-study-page">
+  <navigation-bar back="{{true}}" background="#F5F7FA" color="#2D3A4B" title="勤工岗位"></navigation-bar>
+
+  <scroll-view class="work-study-scroll" scroll-y>
+    <view class="container-page">
+      <view class="card" wx:if="{{!hasStudentSession}}">
+        <view class="section-title">登录后可用</view>
+        <text class="empty-tip">登录后可查看岗位匹配度、提交岗位申请并跟踪审核进度。</text>
+        <button class="primary-btn" bindtap="openLogin">前往登录</button>
+      </view>
+
+      <block wx:if="{{hasStudentSession}}">
+        <view class="card" wx:if="{{student}}">
+          <view class="section-title">我的认定状态</view>
+          <view class="student-tag-row">
+            <text class="tag">{{student.currentRecognitionStatus}}</text>
+            <text class="tag {{student.currentRecognitionLevel === '未认定' ? '' : 'tag-success'}}">{{student.currentRecognitionLevel}}</text>
+          </view>
+          <text class="meta-line">认定等级：{{student.currentRecognitionLevel}}</text>
+        </view>
+
+        <view class="card">
+          <view class="section-title">岗位智能匹配</view>
+          <text wx:if="{{loading}}" class="empty-tip">正在加载岗位匹配结果...</text>
+          <block wx:if="{{!loading && workStudyJobs.length > 0}}">
+            <view class="job-item" wx:for="{{workStudyJobs}}" wx:key="id">
+              <view class="job-head">
+                <text class="job-title">{{item.title}}</text>
+                <text class="tag {{item.eligible ? 'tag-success' : 'tag-danger'}}">{{item.matchLevel}} · {{item.matchScore}}分</text>
+              </view>
+              <text class="meta-line">部门：{{item.department}} · 地点：{{item.location}}</text>
+              <text class="meta-line">薪资：{{item.salaryPerHour}}元/小时 · 每周上限{{item.weeklyHoursMax}}小时</text>
+              <text class="meta-line">说明：{{item.reason}}</text>
+              <view class="reason-list" wx:if="{{item.matchReasons.length > 0}}">
+                <text class="reason-item" wx:for="{{item.matchReasons}}" wx:key="*this">• {{item}}</text>
+              </view>
+              <view class="slot-list" wx:if="{{item.shiftSlots.length > 0}}">
+                <text class="slot-item" wx:for="{{item.shiftSlots}}" wx:key="*this">{{item}}</text>
+              </view>
+              <button
+                class="primary-btn apply-btn"
+                data-id="{{item.id}}"
+                bindtap="onOpenApplyPanel"
+                disabled="{{!item.eligible}}"
+              >
+                {{item.eligible ? '申请该岗位' : '当前暂不可申请'}}
+              </button>
+            </view>
+          </block>
+          <text wx:if="{{!loading && workStudyJobs.length === 0}}" class="empty-tip">当前暂无可报名岗位。</text>
+        </view>
+
+        <view class="card">
+          <view class="section-title">我的岗位申请进度</view>
+          <block wx:if="{{workStudyApplications.length > 0}}">
+            <view class="apply-item" wx:for="{{workStudyApplications}}" wx:key="id">
+              <view class="apply-head">
+                <text class="apply-title">{{item.jobTitle}}</text>
+                <text class="tag {{item.status === '审核通过' ? 'tag-success' : item.status === '驳回' ? 'tag-danger' : ''}}">{{item.status}}</text>
+              </view>
+              <text class="meta-line">岗位部门：{{item.department}}</text>
+              <text class="meta-line">匹配等级：{{item.matchLevel}} · {{item.matchScore}}分</text>
+              <text class="meta-line">提交时间：{{item.submittedAt}}</text>
+              <text class="meta-line" wx:if="{{item.reviewedAt}}">审核时间：{{item.reviewedAt}}</text>
+              <text class="meta-line" wx:if="{{item.reviewComment}}">审核意见：{{item.reviewComment}}</text>
+            </view>
+          </block>
+          <text wx:else class="empty-tip">暂无岗位申请记录。</text>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+
+  <view wx:if="{{showApplyPanel && selectedJob}}" class="apply-mask" bindtap="onCloseApplyPanel"></view>
+  <view wx:if="{{showApplyPanel && selectedJob}}" class="apply-panel">
+    <view class="apply-panel-header">
+      <text class="apply-panel-title">岗位申请</text>
+      <text class="apply-panel-close" bindtap="onCloseApplyPanel">关闭</text>
+    </view>
+    <scroll-view class="apply-panel-scroll" scroll-y>
+      <view class="apply-panel-body">
+        <text class="apply-panel-job">{{selectedJob.title}} · {{selectedJob.department}}</text>
+        <text class="meta-line">匹配等级：{{selectedJob.matchLevel}} · {{selectedJob.matchScore}}分</text>
+        <text class="meta-line">岗位说明：{{selectedJob.reason}}</text>
+
+        <view class="form-group" wx:if="{{selectedJob.shiftSlots.length > 0}}">
+          <text class="form-label">可上岗时间（可多选）</text>
+          <checkbox-group bindchange="onApplySlotChange">
+            <label class="slot-select-item" wx:for="{{selectedJob.shiftSlots}}" wx:key="*this">
+              <checkbox value="{{item}}" checked="{{selectedApplySlots.indexOf(item) > -1}}" color="#4A90E2" />
+              <text>{{item}}</text>
+            </label>
+          </checkbox-group>
+        </view>
+
+        <view class="form-group">
+          <text class="form-label">申请说明</text>
+          <textarea
+            class="form-textarea"
+            value="{{applyIntro}}"
+            placeholder="请说明你的岗位意愿、相关经验和可到岗时间安排。"
+            bindinput="onApplyIntroInput"
+          ></textarea>
+        </view>
+
+        <view class="form-group no-margin">
+          <text class="form-label">技能标签（逗号分隔）</text>
+          <input class="form-input" value="{{applySkillTags}}" placeholder="如：Excel, 沟通, 文案" bindinput="onApplySkillTagsInput" />
+        </view>
+
+        <button class="primary-btn" bindtap="onSubmitApply" disabled="{{applying}}">
+          {{applying ? '正在提交...' : '提交岗位申请'}}
+        </button>
+      </view>
+    </scroll-view>
+  </view>
+</view>

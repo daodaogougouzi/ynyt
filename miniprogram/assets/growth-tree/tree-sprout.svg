@@ -1,0 +1,29 @@
+<svg width="800" height="680" viewBox="0 0 800 680" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skySprout" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d9efff"/>
+      <stop offset="66%" stop-color="#edf9ff"/>
+      <stop offset="100%" stop-color="#def2df"/>
+    </linearGradient>
+    <radialGradient id="leafSproutMain" cx="50%" cy="50%" r="68%">
+      <stop offset="0%" stop-color="#b7ebb0"/>
+      <stop offset="72%" stop-color="#75c86e"/>
+      <stop offset="100%" stop-color="#4fa557"/>
+    </radialGradient>
+    <linearGradient id="trunkSprout" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#be8452"/>
+      <stop offset="100%" stop-color="#74492d"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="680" rx="32" fill="url(#skySprout)"/>
+  <ellipse cx="400" cy="632" rx="390" ry="84" fill="#71c675" opacity="0.94"/>
+  <path d="M356 610 C374 528 384 440 394 216 C396 176 410 176 412 216 C422 440 432 528 450 610 Z" fill="url(#trunkSprout)"/>
+  <path d="M398 450 C300 426 206 384 116 302" stroke="#8b5b35" stroke-width="24" stroke-linecap="round" fill="none"/>
+  <path d="M406 446 C506 420 600 378 690 292" stroke="#8b5b35" stroke-width="24" stroke-linecap="round" fill="none"/>
+  <path d="M390 348 C336 304 286 252 232 176" stroke="#94623c" stroke-width="16" stroke-linecap="round" fill="none"/>
+  <path d="M418 344 C472 300 524 246 580 170" stroke="#94623c" stroke-width="16" stroke-linecap="round" fill="none"/>
+  <ellipse cx="400" cy="212" rx="272" ry="174" fill="url(#leafSproutMain)"/>
+  <ellipse cx="218" cy="314" rx="164" ry="108" fill="#83d07d"/>
+  <ellipse cx="586" cy="308" rx="180" ry="112" fill="#7dcb76"/>
+  <ellipse cx="402" cy="124" rx="150" ry="86" fill="#d6f5cb" opacity="0.82"/>
+</svg>

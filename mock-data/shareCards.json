@@ -1,0 +1,353 @@
+[
+  {
+    "id": "share-card-1775997545972-3809",
+    "code": "PS6EVT",
+    "path": "/pages/policy-detail/policy-detail?id=national-scholarship&shareCode=PS6EVT",
+    "title": "张晓雨 推荐你关注：国家奖学金",
+    "subtitle": "面向学习成绩和综合表现特别突出的二年级及以上学生。",
+    "poster": "http://127.0.0.1:3100/teacher/logo.png",
+    "sharer": {
+      "studentName": "张晓雨",
+      "college": "药学院",
+      "level": "特别困难"
+    },
+    "payload": {
+      "scholarshipId": "national-scholarship",
+      "scholarshipName": "国家奖学金",
+      "sponsor": "国家资助",
+      "amountText": "10000元/人/学年",
+      "deadline": "按学校年度评审通知执行",
+      "reason": "面向学习成绩和综合表现特别突出的二年级及以上学生。",
+      "sharer": {
+        "studentName": "张晓雨",
+        "college": "药学院",
+        "level": "特别困难"
+      }
+    },
+    "createdAt": "2026-04-12T12:39:05.973Z"
+  },
+  {
+    "id": "share-card-1775974304731-3637",
+    "code": "UW7MX5",
+    "path": "/pages/policy-detail/policy-detail?id=temporary-hardship-subsidy&shareCode=UW7MX5",
+    "title": "何思远 推荐你关注：临时困难补贴",
+    "subtitle": "该助学项目只对指定困难认定类型开放，当前认定类型不匹配。",
+    "poster": "http://127.0.0.1:3100/teacher/logo.png",
+    "sharer": {
+      "studentName": "何思远",
+      "college": "公共卫生学院",
+      "level": "一般困难"
+    },
+    "payload": {
+      "scholarshipId": "temporary-hardship-subsidy",
+      "scholarshipName": "临时困难补贴",
+      "sponsor": "学校资助",
+      "amountText": "金额不等，根据实际突发情况而定",
+      "deadline": "困难发生后及时申报",
+      "reason": "该助学项目只对指定困难认定类型开放，当前认定类型不匹配。",
+      "sharer": {
+        "studentName": "何思远",
+        "college": "公共卫生学院",
+        "level": "一般困难"
+      }
+    },
+    "createdAt": "2026-04-12T06:11:44.731Z"
+  },
+  {
+    "id": "share-card-1775971841925-1868",
+    "code": "US6JQE",
+    "path": "/pages/policy-detail/policy-detail?id=national-grant&shareCode=US6JQE",
+    "title": "何思远 推荐你关注：国家助学金",
+    "subtitle": "当前按三档资助分档发��，预计金额为2500元/人/学年。",
+    "poster": "http://127.0.0.1:3100/teacher/logo.png",
+    "sharer": {
+      "studentName": "何思远",
+      "college": "公共卫生学院",
+      "level": "一般困难"
+    },
+    "payload": {
+      "scholarshipId": "national-grant",
+      "scholarshipName": "国家助学金",
+      "sponsor": "国家资助",
+      "amountText": "2500-5000元/人/学年（一般分三个等级）",
+      "deadline": "按学校年度资助评审安排执行",
+      "reason": "当前按三档资助分档发��，预计金额为2500元/人/学年。",
+      "sharer": {
+        "studentName": "何思远",
+        "college": "公共卫生学院",
+        "level": "一般困难"
+      }
+    },
+    "createdAt": "2026-04-12T05:30:41.925Z"
+  },
+  {
+    "id": "share-card-1775971560010-9934",
+    "code": "DWBXMB",
+    "path": "/pages/policy-detail/policy-detail?id=national-grant&shareCode=DWBXMB",
+    "title": "何思远 推荐你关注：国家助学金",
+    "subtitle": "当前按三档资助分档发放，预计金额为2500元/人/学年。",
+    "poster": "http://127.0.0.1:3100/teacher/logo.png",
+    "sharer": {
+      "studentName": "何思远",
+      "college": "公共卫生学院",
+      "level": "一般困难"
+    },
+    "payload": {
+      "scholarshipId": "national-grant",
+      "scholarshipName": "国家助学金",
+      "sponsor": "国家资助",
+      "amountText": "2500-5000元/人/学年（一般分三个等级）",
+      "deadline": "按学校年度资助评审安排执行",
+      "reason": "当前按三档资助分档发放，预计金额为2500元/人/学年。",
+      "sharer": {
+        "studentName": "何思远",
+        "college": "公共卫生学院",
+        "level": "一般困难"
+      }
+    },
+    "createdAt": "2026-04-12T05:26:00.010Z"
+  },
+  {
+    "id": "share-card-1775970033309-8598",
+    "code": "V7X2V9",
+    "path": "/pages/policy-detail/policy-detail?id=national-encourage-scholarship&shareCode=V7X2V9",
+    "title": "何思远 推荐你关注：国家励志奖学金",
+    "subtitle": "同一学年内同一奖助学金项目仅可申请一次，你已申请国家励志奖学金。",
+    "poster": "http://127.0.0.1:3100/teacher/logo.png",
+    "sharer": {
+      "studentName": "何思远",
+      "college": "公共卫生学院",
+      "level": "一般困难"
+    },
+    "payload": {
+      "scholarshipId": "national-encourage-scholarship",
+      "scholarshipName": "国家励志奖学金",
+      "sponsor": "国家资助",
+      "amountText": "6000元/人/学年",
+      "deadline": "2026-04-14",
+      "reason": "同一学年内同一奖助学金项目仅可申请一次，你已申请国家励志奖学金。",
+      "sharer": {
+        "studentName": "何思远",
+        "college": "公共卫生学院",
+        "level": "一般困难"
+      }
+    },
+    "createdAt": "2026-04-12T05:00:33.309Z"
+  },
+  {
+    "id": "share-card-1775921494079-4416",
+    "code": "MWNZFV",
+    "path": "/pages/policy-detail/policy-detail?id=national-encourage-scholarship&shareCode=MWNZFV",
+    "title": "何思远 推荐你关注：国家励志奖学金",
+    "subtitle": "同一学年内同一奖助学金项目仅可申请一次，你已申请国家励志奖学金。",
+    "poster": "http://127.0.0.1:3100/teacher/logo.png",
+    "sharer": {
+      "studentName": "何思远",
+      "college": "公共卫生学院",
+      "level": "一般困难"
+    },
+    "payload": {
+      "scholarshipId": "national-encourage-scholarship",
+      "scholarshipName": "国家励志奖学金",
+      "sponsor": "国家资助",
+      "amountText": "6000元/人/学年",
+      "deadline": "按学校年度评审通知执行",
+      "reason": "同一学年内同一奖助学金项目仅可申请一次，你已申请国家励志奖学金。",
+      "sharer": {
+        "studentName": "何思远",
+        "college": "公共卫生学院",
+        "level": "一般困难"
+      }
+    },
+    "createdAt": "2026-04-11T15:31:34.079Z"
+  },
+  {
+    "id": "share-card-1775921469930-2819",
+    "code": "UQ972Q",
+    "path": "/pages/policy-detail/policy-detail?id=national-encourage-scholarship&shareCode=UQ972Q",
+    "title": "何思远 推荐你关注：国家励志奖学金",
+    "subtitle": "同一学年内同一奖助学金项目仅可申请一次，你已申请国家励志奖学金。",
+    "poster": "http://127.0.0.1:3100/teacher/logo.png",
+    "sharer": {
+      "studentName": "何思远",
+      "college": "公共卫生学院",
+      "level": "一般困难"
+    },
+    "payload": {
+      "scholarshipId": "national-encourage-scholarship",
+      "scholarshipName": "国家励志奖学金",
+      "sponsor": "国家资助",
+      "amountText": "6000元/人/学年",
+      "deadline": "按学校年度评审通知执行",
+      "reason": "同一学年内同一奖助学金项目仅可申请一次，你已申请国家励志奖学金。",
+      "sharer": {
+        "studentName": "何思远",
+        "college": "公共卫生学院",
+        "level": "一般困难"
+      }
+    },
+    "createdAt": "2026-04-11T15:31:09.930Z"
+  },
+  {
+    "id": "share-card-1775919876616-9485",
+    "code": "NA6V2X",
+    "path": "/pages/policy-detail/policy-detail?id=national-encourage-scholarship&shareCode=NA6V2X",
+    "title": "何思远 推荐你关注：国家励志奖学金",
+    "subtitle": "同一学年内同一奖助学金项目仅可申请一次，你已申请国家励志奖学金。",
+    "poster": "http://127.0.0.1:3100/teacher/logo.png",
+    "sharer": {
+      "studentName": "何思远",
+      "college": "公共卫生学院",
+      "level": "一般困难"
+    },
+    "payload": {
+      "scholarshipId": "national-encourage-scholarship",
+      "scholarshipName": "国家励志奖学金",
+      "sponsor": "国家资助",
+      "amountText": "6000元/人/学年",
+      "deadline": "按学校年度评审通知执行",
+      "reason": "同一学年内同一奖助学金项目仅可申请一次，你已申请国家励志奖学金。",
+      "sharer": {
+        "studentName": "何思远",
+        "college": "公共卫生学院",
+        "level": "一般困难"
+      }
+    },
+    "createdAt": "2026-04-11T15:04:36.616Z"
+  },
+  {
+    "id": "share-card-1775918833800-7204",
+    "code": "KH3GJU",
+    "path": "/pages/policy-detail/policy-detail?id=national-encourage-scholarship&shareCode=KH3GJU",
+    "title": "黄子轩 推荐你关注：国家励志奖学金",
+    "subtitle": "面向品学兼优且家庭经济困难的二年级及以上学生。",
+    "poster": "http://127.0.0.1:3100/teacher/logo.png",
+    "sharer": {
+      "studentName": "黄子轩",
+      "college": "医学技术学院",
+      "level": "一般困难"
+    },
+    "payload": {
+      "scholarshipId": "national-encourage-scholarship",
+      "scholarshipName": "国家励志奖学金",
+      "sponsor": "国家资助",
+      "amountText": "6000元/人/学年",
+      "deadline": "按学校年度评审通知执行",
+      "reason": "面向品学兼优且家庭经济困难的二年级及以上学生。",
+      "sharer": {
+        "studentName": "黄子轩",
+        "college": "医学技术学院",
+        "level": "一般困难"
+      }
+    },
+    "createdAt": "2026-04-11T14:47:13.800Z"
+  },
+  {
+    "id": "share-card-1775909614548-3624",
+    "code": "3Q2D6P",
+    "path": "/pages/policy-detail/policy-detail?id=ph-alumni-scholarship&shareCode=3Q2D6P",
+    "title": "何思远 推荐你关注：药苑校友基金奖学金",
+    "subtitle": "面向药学院优秀考研录取学生。",
+    "poster": "http://127.0.0.1:3100/teacher/logo.png",
+    "sharer": {
+      "studentName": "何思远",
+      "college": "公共卫生学院",
+      "level": "一般困难"
+    },
+    "payload": {
+      "scholarshipId": "ph-alumni-scholarship",
+      "scholarshipName": "药苑校友基金奖学金",
+      "sponsor": "药苑校友基金（药学院）",
+      "amountText": "2000元/人/年",
+      "deadline": "按药学院通知为准",
+      "reason": "面向药学院优秀考研录取学生。",
+      "sharer": {
+        "studentName": "何思远",
+        "college": "公共卫生学院",
+        "level": "一般困难"
+      }
+    },
+    "createdAt": "2026-04-11T12:13:34.548Z"
+  },
+  {
+    "id": "share-card-1775835494783-8036",
+    "code": "8X6YDW",
+    "path": "/pages/policy-detail/policy-detail?id=national-scholarship&shareCode=8X6YDW",
+    "title": "林思涵 推荐你关注：国家奖学金",
+    "subtitle": "面向学习成绩和综合表现特别突出的二年级及以上学生。",
+    "poster": "http://127.0.0.1:3100/teacher/logo.png",
+    "sharer": {
+      "studentName": "林思涵",
+      "college": "第二临床医学院",
+      "level": "未认定"
+    },
+    "payload": {
+      "scholarshipId": "national-scholarship",
+      "scholarshipName": "国家奖学金",
+      "sponsor": "国家资助",
+      "amountText": "10000元/人/学年",
+      "deadline": "按学校年度评审通知执行",
+      "reason": "面向学习成绩和综合表现特别突出的二年级及以上学生。",
+      "sharer": {
+        "studentName": "林思涵",
+        "college": "第二临床医学院",
+        "level": "未认定"
+      }
+    },
+    "createdAt": "2026-04-10T15:38:14.783Z"
+  },
+  {
+    "id": "share-card-1775835431711-3104",
+    "code": "R4U3KY",
+    "path": "/pages/policy-detail/policy-detail?id=national-scholarship&shareCode=R4U3KY",
+    "title": "林思涵 推荐你关注：国家奖学金",
+    "subtitle": "面向学习成绩和综合表现特别突出的二年级及以上学生。",
+    "poster": "http://127.0.0.1:3100/teacher/logo.png",
+    "sharer": {
+      "studentName": "林思涵",
+      "college": "第二临床医学院",
+      "level": "未认定"
+    },
+    "payload": {
+      "scholarshipId": "national-scholarship",
+      "scholarshipName": "国家奖学金",
+      "sponsor": "国家资助",
+      "amountText": "10000元/人/学年",
+      "deadline": "按学校年度评审通知执行",
+      "reason": "面向学习成绩和综合表现特别突出的二年级及以上学生。",
+      "sharer": {
+        "studentName": "林思涵",
+        "college": "第二临床医学院",
+        "level": "未认定"
+      }
+    },
+    "createdAt": "2026-04-10T15:37:11.712Z"
+  },
+  {
+    "id": "share-card-1775803823477-7360",
+    "code": "PQ9KFG",
+    "path": "/pages/policy-detail/policy-detail?id=ph-alumni-aid&shareCode=PQ9KFG",
+    "title": "张晓雨 推荐你关注：药苑校友基金助学金",
+    "subtitle": "面向药学院二至四年级本科贫困生。",
+    "poster": "http://127.0.0.1:3100/teacher/logo.png",
+    "sharer": {
+      "studentName": "张晓雨",
+      "college": "药学院",
+      "level": "特别困难"
+    },
+    "payload": {
+      "scholarshipId": "ph-alumni-aid",
+      "scholarshipName": "药苑校友基金助学金",
+      "sponsor": "药苑校友基金（药学院）",
+      "amountText": "2500元/人/年",
+      "deadline": "2026-04-11",
+      "reason": "面向药学院二至四年级本科贫困生。",
+      "sharer": {
+        "studentName": "张晓雨",
+        "college": "药学院",
+        "level": "特别困难"
+      }
+    },
+    "createdAt": "2026-04-10T06:50:23.477Z"
+  }
+]

@@ -1,0 +1,29 @@
+<svg width="800" height="680" viewBox="0 0 800 680" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="skySeed" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#dff1ff"/>
+      <stop offset="68%" stop-color="#eef9ff"/>
+      <stop offset="100%" stop-color="#e4f6e2"/>
+    </linearGradient>
+    <radialGradient id="leafSeedMain" cx="50%" cy="50%" r="68%">
+      <stop offset="0%" stop-color="#b7ebb0"/>
+      <stop offset="72%" stop-color="#79c871"/>
+      <stop offset="100%" stop-color="#5ca95b"/>
+    </radialGradient>
+    <linearGradient id="trunkSeed" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#be8452"/>
+      <stop offset="100%" stop-color="#74492d"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="680" rx="32" fill="url(#skySeed)"/>
+  <ellipse cx="400" cy="632" rx="390" ry="84" fill="#71c675" opacity="0.92"/>
+  <path d="M360 598 C376 520 386 430 394 244 C396 198 410 198 412 244 C420 430 430 520 446 598 Z" fill="url(#trunkSeed)"/>
+  <path d="M398 444 C316 420 238 382 164 316" stroke="#8b5b35" stroke-width="24" stroke-linecap="round" fill="none"/>
+  <path d="M406 440 C490 416 570 378 646 312" stroke="#8b5b35" stroke-width="24" stroke-linecap="round" fill="none"/>
+  <path d="M390 344 C344 306 302 260 256 196" stroke="#94623c" stroke-width="16" stroke-linecap="round" fill="none"/>
+  <path d="M418 340 C462 302 506 258 552 192" stroke="#94623c" stroke-width="16" stroke-linecap="round" fill="none"/>
+  <ellipse cx="400" cy="220" rx="250" ry="160" fill="url(#leafSeedMain)"/>
+  <ellipse cx="230" cy="308" rx="150" ry="96" fill="#82cf7b"/>
+  <ellipse cx="576" cy="304" rx="164" ry="104" fill="#7bca74"/>
+  <ellipse cx="400" cy="138" rx="138" ry="76" fill="#d6f5cb" opacity="0.8"/>
+</svg>

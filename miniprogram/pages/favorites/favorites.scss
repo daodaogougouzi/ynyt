@@ -1,0 +1,41 @@
+.simple-page {
+  min-height: 100vh;
+  background: #f5f7fa;
+}
+
+.simple-scroll {
+  height: calc(100vh - 88rpx);
+}
+
+.favorite-item {
+  border: 1rpx solid #e8edf4;
+}
+
+.item-main,
+.item-sub,
+.detail-link {
+  display: block;
+}
+
+.item-main {
+  color: #2d3a4b;
+  font-size: 26rpx;
+  font-weight: 600;
+  margin-bottom: 8rpx;
+}
+
+.item-sub {
+  color: #5d6b7f;
+  font-size: 24rpx;
+}
+
+.detail-link {
+  margin-top: 12rpx;
+  color: #4a90e2;
+  font-size: 24rpx;
+}
+
+.empty-tip {
+  color: #8a94a6;
+  font-size: 24rpx;
+}

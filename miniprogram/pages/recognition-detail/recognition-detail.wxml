@@ -1,0 +1,67 @@
+<view class="detail-page">
+  <navigation-bar back="{{true}}" background="#F5F7FA" color="#2D3A4B" title="认定申请详情"></navigation-bar>
+
+  <scroll-view class="detail-scroll" scroll-y>
+    <view class="container-page">
+      <view class="card" wx:if="{{loading}}">
+        <text class="empty-tip">正在加载申请详情...</text>
+      </view>
+
+      <block wx:if="{{!loading && record}}">
+        <view class="card">
+          <view class="section-title">申请状态</view>
+          <view class="status-row">
+            <text class="tag {{record.reviewStatus === '审核通过' ? 'tag-success' : record.reviewStatus === '驳回' ? 'tag-danger' : ''}}">{{record.reviewStatus}}</text>
+            <text class="tag {{record.finalLevel === '未认定' ? '' : 'tag-success'}}">{{record.finalLevel}}</text>
+          </view>
+          <text class="meta-line">系统预估：{{record.systemLevel}}</text>
+          <text class="meta-line">最终结果：{{record.finalLevel}}</text>
+          <text class="meta-line">提交时间：{{record.submittedAt}}</text>
+          <text class="meta-line">审核时间：{{record.reviewedAt || '暂未审核'}}</text>
+        </view>
+
+        <view class="card">
+          <view class="section-title">基础信息</view>
+          <text class="meta-line">姓名：{{record.profile.name}}</text>
+          <text class="meta-line">学号：{{record.profile.studentNo}}</text>
+          <text class="meta-line">学院：{{record.profile.college}}</text>
+          <text class="meta-line">专业班级：{{record.profile.major}} · {{record.profile.className}}</text>
+          <text class="meta-line">年级：{{record.profile.grade}}</text>
+          <text class="meta-line">联系方式：{{record.profile.phone}}</text>
+        </view>
+
+        <view class="card">
+          <view class="section-title">申请认定情况</view>
+          <text class="list-item" wx:for="{{record.selectedRuleLabels}}" wx:key="*this">• {{item}}</text>
+          <text wx:if="{{record.selectedRuleLabels.length === 0}}" class="empty-tip">未填写认定项。</text>
+        </view>
+
+        <view class="card" wx:if="{{record.confirmedRuleLabels.length > 0}}">
+          <view class="section-title">老师确认认定项</view>
+          <text class="list-item" wx:for="{{record.confirmedRuleLabels}}" wx:key="*this">• {{item}}</text>
+        </view>
+
+        <view class="card">
+          <view class="section-title">材料与说明</view>
+          <text class="list-item" wx:for="{{record.materials}}" wx:key="*this">• {{item}}</text>
+          <text wx:if="{{record.materials.length === 0}}" class="empty-tip">暂无材料清单。</text>
+          <text class="note-text">补充说明：{{record.supplementalNote || '无'}}</text>
+        </view>
+
+        <view class="card">
+          <view class="section-title">附件材料</view>
+          <view class="attachment-item" wx:for="{{record.attachments}}" wx:key="id">
+            <text class="attachment-name">{{item.name}}</text>
+            <text class="attachment-size">{{item.sizeLabel}}</text>
+          </view>
+          <text wx:if="{{record.attachments.length === 0}}" class="empty-tip">未上传附件。</text>
+        </view>
+
+        <view class="card">
+          <view class="section-title">审核意见</view>
+          <text class="review-text">{{record.reviewComment || '暂无审核意见'}}</text>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,46 @@
+<view class="temp-page">
+  <navigation-bar back="{{true}}" background="#F5F7FA" color="#2D3A4B" title="临时困难补助・全流程指引"></navigation-bar>
+
+  <scroll-view class="temp-scroll" scroll-y>
+    <view class="container-page">
+      <view class="card">
+        <view class="section-title">申请流程步骤</view>
+        <view class="step-list">
+          <view class="step-item" wx:for="{{steps}}" wx:key="title">
+            <view class="step-dot"></view>
+            <view class="step-content">
+              <text class="step-title">{{item.title}}</text>
+              <text class="step-desc">{{item.desc}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="card">
+        <view class="section-title">重点适用情形</view>
+        <view class="material-item" wx:for="{{recognitionExamples}}" wx:key="*this">• {{item}}</view>
+      </view>
+
+      <view class="card">
+        <view class="section-title">材料清单</view>
+        <view class="material-item" wx:for="{{materials}}" wx:key="*this">• {{item}}</view>
+      </view>
+
+      <view class="card">
+        <view class="section-title">高频 FAQ</view>
+        <view class="faq-item" wx:for="{{faqs}}" wx:key="q">
+          <text class="faq-q">Q：{{item.q}}</text>
+          <text class="faq-a">A：{{item.a}}</text>
+        </view>
+      </view>
+
+      <view class="card">
+        <view class="section-title">应急咨询</view>
+        <view class="contact-item" wx:for="{{contacts}}" wx:key="label">
+          <text class="contact-label">{{item.label}}</text>
+          <text class="contact-value">{{item.value}}</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

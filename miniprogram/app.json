@@ -1,0 +1,86 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/announcement-detail/announcement-detail",
+    "pages/policy-detail/policy-detail",
+    "pages/recognition-list/recognition-list",
+    "pages/recognition-detail/recognition-detail",
+    "pages/application-list/application-list",
+    "pages/application-detail/application-detail",
+    "pages/evaluate-history/evaluate-history",
+    "pages/favorites/favorites",
+    "pages/help-center/help-center",
+    "pages/about/about-page",
+    "pages/ai-evaluate/ai-evaluate",
+    "pages/college-scholar/college-scholar",
+    "pages/temporary-aid/temporary-aid",
+    "pages/work-study/work-study",
+    "pages/ai-assistant/ai-assistant",
+    "pages/mental-care/mental-care",
+    "pages/mine/mine",
+    "pages/campus-moment-list/campus-moment-list",
+    "pages/ai-chat-room/ai-chat-room"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom",
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#F5F7FA"
+  },
+  "usingComponents": {
+    "navigation-bar": "/components/navigation-bar/navigation-bar",
+    "ai-chat": "/components/ai-chat/ai-chat"
+  },
+  "tabBar": {
+    "color": "#8A94A6",
+    "selectedColor": "#4A90E2",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/tab/home-default.png",
+        "selectedIconPath": "assets/tab/home-active.png"
+      },
+      {
+        "pagePath": "pages/ai-evaluate/ai-evaluate",
+        "text": "AI评估",
+        "iconPath": "assets/tab/evaluate-default.png",
+        "selectedIconPath": "assets/tab/evaluate-active.png"
+      },
+      {
+        "pagePath": "pages/college-scholar/college-scholar",
+        "text": "学院奖助",
+        "iconPath": "assets/tab/college-default.png",
+        "selectedIconPath": "assets/tab/college-active.png"
+      },
+      {
+        "pagePath": "pages/mental-care/mental-care",
+        "text": "关怀中心",
+        "iconPath": "assets/tab/care-default.png",
+        "selectedIconPath": "assets/tab/care-active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "assets/tab/mine-default.png",
+        "selectedIconPath": "assets/tab/mine-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "defaultContentBox": true,
+      "tagNameStyleIsolation": "legacy",
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.0",
+      "sdkVersionEnd": "15.255.255"
+    }
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

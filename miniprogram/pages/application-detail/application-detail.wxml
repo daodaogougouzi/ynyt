@@ -1,0 +1,64 @@
+<view class="detail-page">
+  <navigation-bar back="{{true}}" background="#F5F7FA" color="#2D3A4B" title="奖助申请详情"></navigation-bar>
+
+  <scroll-view class="detail-scroll" scroll-y>
+    <view class="container-page">
+      <view class="card" wx:if="{{loading}}">
+        <text class="empty-tip">正在加载申请详情...</text>
+      </view>
+
+      <block wx:if="{{!loading && record}}">
+        <view class="card">
+          <view class="section-title">申请状态</view>
+          <view class="status-row">
+            <text class="tag {{record.status === '审核通过' ? 'tag-success' : record.status === '驳回' ? 'tag-danger' : ''}}">{{record.status}}</text>
+            <text class="tag">{{record.scholarshipType}}</text>
+          </view>
+          <text class="meta-line">奖助学金：{{record.scholarshipName}}</text>
+          <text class="meta-line">学年：{{record.academicYear}}</text>
+          <text class="meta-line">提交时间：{{record.submittedAt}}</text>
+          <text class="meta-line">审核时间：{{record.reviewedAt || '暂未审核'}}</text>
+        </view>
+
+        <view class="card">
+          <view class="section-title">认定快照</view>
+          <text class="meta-line">认定快照：{{record.recognitionSnapshot.level}}</text>
+          <text class="list-item" wx:for="{{record.recognitionSnapshot.confirmedRecognitionLabels}}" wx:key="*this">• {{item}}</text>
+          <text wx:if="{{record.recognitionSnapshot.confirmedRecognitionLabels.length === 0}}" class="empty-tip">暂无认定类型快照。</text>
+        </view>
+
+        <view class="card">
+          <view class="section-title">申请信息</view>
+          <text class="meta-line">个人简介：{{record.applySummary.personalIntro || '无'}}</text>
+          <text class="meta-line">家庭情况：{{record.applySummary.familySituation || '无'}}</text>
+          <text class="meta-line">使用计划：{{record.applySummary.usagePlan || '无'}}</text>
+        </view>
+
+        <view class="card">
+          <view class="section-title">资格说明</view>
+          <text class="meta-line">资格判断：{{record.eligibilityResult.reason || '无'}}</text>
+          <text wx:if="{{record.eligibilityResult.grantTier}}" class="meta-line">金额档次：{{record.eligibilityResult.grantTier.label}} · {{record.eligibilityResult.grantTier.amount}}</text>
+        </view>
+
+        <view class="card">
+          <view class="section-title">申请附件</view>
+          <view wx:if="{{record.attachments.length > 0}}">
+            <view class="attachment-item" wx:for="{{record.attachments}}" wx:key="id">
+              <view class="attachment-meta">
+                <text class="attachment-name">{{item.name}}</text>
+                <text class="attachment-size">{{item.sizeLabel || '未知大小'}}</text>
+              </view>
+              <button class="secondary-btn attachment-link" bindtap="onDownloadAttachment" data-id="{{item.id}}">查看</button>
+            </view>
+          </view>
+          <text wx:else class="empty-tip">暂无申请附件。</text>
+        </view>
+
+        <view class="card">
+          <view class="section-title">审核意见</view>
+          <text class="review-text">{{record.reviewComment || '暂无审核意见'}}</text>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>

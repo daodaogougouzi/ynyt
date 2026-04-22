@@ -1,0 +1,174 @@
+[
+  {
+    "id": "campus-moment-1775836471154-2773",
+    "studentId": "student-001",
+    "studentNo": "20250001",
+    "studentName": "张晓雨",
+    "title": "ͼ���ѧϰ��",
+    "caption": "������ͼ���ѧϰ��2Сʱ",
+    "image": "https://example.com/mock-1.jpg",
+    "imageList": [
+      "https://example.com/mock-1.jpg"
+    ],
+    "imageAttachment": {
+      "id": "",
+      "name": "attachment-1775836471127",
+      "type": "image/jpeg",
+      "size": 0,
+      "sizeLabel": "0B",
+      "filePath": "https://example.com/mock-1.jpg",
+      "fileUrl": "https://example.com/mock-1.jpg"
+    },
+    "imageAttachments": [
+      {
+        "id": "attachment-1775836471154-0",
+        "name": "attachment-1775836471127",
+        "type": "image/jpeg",
+        "size": 0,
+        "sizeLabel": "0B",
+        "filePath": "https://example.com/mock-1.jpg",
+        "fileUrl": "https://example.com/mock-1.jpg"
+      }
+    ],
+    "status": "待审核",
+    "reviewComment": "",
+    "submittedAt": "2026-04-10T15:54:31.154Z",
+    "reviewedAt": "",
+    "publishedAt": "",
+    "publisher": "关怀中心老师"
+  },
+  {
+    "id": "campus-moment-real-001",
+    "studentId": "student-001",
+    "studentNo": "20250001",
+    "studentName": "张晓雨",
+    "title": "天外“理解当代中国”教学创新研讨会现场",
+    "caption": "转自高校公开新闻素材，记录学习交流活动瞬间。",
+    "image": "https://ynyt.nat100.top/uploads/campus-moments/images/tjfsu-news-10265.jpg",
+    "imageList": [
+      "https://ynyt.nat100.top/uploads/campus-moments/images/tjfsu-news-10265.jpg",
+      "https://ynyt.nat100.top/uploads/campus-moments/images/tjfsu-news-10263.jpg"
+    ],
+    "imageAttachment": {
+      "id": "campus-moment-real-001-image-1",
+      "name": "tjfsu-news-10265.jpg",
+      "type": "image/jpeg",
+      "size": 213915,
+      "sizeLabel": "208.9KB",
+      "filePath": "/uploads/campus-moments/images/tjfsu-news-10265.jpg",
+      "fileUrl": "https://ynyt.nat100.top/uploads/campus-moments/images/tjfsu-news-10265.jpg"
+    },
+    "imageAttachments": [
+      {
+        "id": "campus-moment-real-001-image-1",
+        "name": "tjfsu-news-10265.jpg",
+        "type": "image/jpeg",
+        "size": 213915,
+        "sizeLabel": "208.9KB",
+        "filePath": "/uploads/campus-moments/images/tjfsu-news-10265.jpg",
+        "fileUrl": "https://ynyt.nat100.top/uploads/campus-moments/images/tjfsu-news-10265.jpg"
+      },
+      {
+        "id": "campus-moment-real-001-image-2",
+        "name": "tjfsu-news-10263.jpg",
+        "type": "image/jpeg",
+        "size": 92795,
+        "sizeLabel": "90.6KB",
+        "filePath": "/uploads/campus-moments/images/tjfsu-news-10263.jpg",
+        "fileUrl": "https://ynyt.nat100.top/uploads/campus-moments/images/tjfsu-news-10263.jpg"
+      }
+    ],
+    "status": "已发布",
+    "reviewComment": "内容真实、图片清晰，已发布。",
+    "submittedAt": "2026-04-09T08:40:00.000Z",
+    "reviewedAt": "2026-04-09T09:20:00.000Z",
+    "publishedAt": "2026-04-09T09:20:00.000Z",
+    "publisher": "张晓雨"
+  },
+  {
+    "id": "campus-moment-real-002",
+    "studentId": "student-003",
+    "studentNo": "20250003",
+    "studentName": "陈宇航",
+    "title": "迎新晚会活动留影",
+    "caption": "学校活动现场氛围很好，和同学一起记录。",
+    "image": "https://ynyt.nat100.top/uploads/campus-moments/images/tjfsu-news-10263.jpg",
+    "imageList": [
+      "https://ynyt.nat100.top/uploads/campus-moments/images/tjfsu-news-10263.jpg",
+      "https://ynyt.nat100.top/uploads/campus-moments/images/tjfsu-news-10265.jpg"
+    ],
+    "imageAttachment": {
+      "id": "campus-moment-real-002-image-1",
+      "name": "tjfsu-news-10263.jpg",
+      "type": "image/jpeg",
+      "size": 92795,
+      "sizeLabel": "90.6KB",
+      "filePath": "/uploads/campus-moments/images/tjfsu-news-10263.jpg",
+      "fileUrl": "https://ynyt.nat100.top/uploads/campus-moments/images/tjfsu-news-10263.jpg"
+    },
+    "imageAttachments": [
+      {
+        "id": "campus-moment-real-002-image-1",
+        "name": "tjfsu-news-10263.jpg",
+        "type": "image/jpeg",
+        "size": 92795,
+        "sizeLabel": "90.6KB",
+        "filePath": "/uploads/campus-moments/images/tjfsu-news-10263.jpg",
+        "fileUrl": "https://ynyt.nat100.top/uploads/campus-moments/images/tjfsu-news-10263.jpg"
+      },
+      {
+        "id": "campus-moment-real-002-image-2",
+        "name": "tjfsu-news-10265.jpg",
+        "type": "image/jpeg",
+        "size": 213915,
+        "sizeLabel": "208.9KB",
+        "filePath": "/uploads/campus-moments/images/tjfsu-news-10265.jpg",
+        "fileUrl": "https://ynyt.nat100.top/uploads/campus-moments/images/tjfsu-news-10265.jpg"
+      }
+    ],
+    "status": "已发布",
+    "reviewComment": "",
+    "submittedAt": "2026-04-09T10:10:00.000Z",
+    "reviewedAt": "2026-04-09T07:07:10.618Z",
+    "publishedAt": "2026-04-09T07:07:10.618Z",
+    "publisher": "李老师"
+  },
+  {
+    "id": "campus-moment-real-003",
+    "studentId": "student-005",
+    "studentNo": "20250005",
+    "studentName": "何思远",
+    "title": "节日慰问活动志愿服务",
+    "caption": "参与志愿服务后，把活动照片同步到校园点滴。",
+    "image": "https://ynyt.nat100.top/uploads/campus-moments/images/tjfsu-news-10265.jpg",
+    "imageList": [
+      "https://ynyt.nat100.top/uploads/campus-moments/images/tjfsu-news-10265.jpg"
+    ],
+    "imageAttachment": {
+      "id": "campus-moment-real-003-image-1",
+      "name": "tjfsu-news-10265.jpg",
+      "type": "image/jpeg",
+      "size": 213915,
+      "sizeLabel": "208.9KB",
+      "filePath": "/uploads/campus-moments/images/tjfsu-news-10265.jpg",
+      "fileUrl": "https://ynyt.nat100.top/uploads/campus-moments/images/tjfsu-news-10265.jpg"
+    },
+    "imageAttachments": [
+      {
+        "id": "campus-moment-real-003-image-1",
+        "name": "tjfsu-news-10265.jpg",
+        "type": "image/jpeg",
+        "size": 213915,
+        "sizeLabel": "208.9KB",
+        "filePath": "/uploads/campus-moments/images/tjfsu-news-10265.jpg",
+        "fileUrl": "https://ynyt.nat100.top/uploads/campus-moments/images/tjfsu-news-10265.jpg"
+      }
+    ],
+    "status": "驳回",
+    "reviewComment": "标题与图片说明需补充具体活动时间地点。",
+    "submittedAt": "2026-04-09T07:30:00.000Z",
+    "reviewedAt": "2026-04-09T08:10:00.000Z",
+    "publishedAt": "",
+    "publisher": "何思远"
+  }
+]

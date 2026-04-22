@@ -1,0 +1,12 @@
+<view class="simple-page">
+  <navigation-bar back="{{true}}" background="#F5F7FA" color="#2D3A4B" title="帮助中心"></navigation-bar>
+
+  <scroll-view class="simple-scroll" scroll-y>
+    <view class="container-page">
+      <view class="card">
+        <view class="section-title">常见说明</view>
+        <text class="list-item" wx:for="{{helpItems}}" wx:key="*this">{{index + 1}}. {{item}}</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

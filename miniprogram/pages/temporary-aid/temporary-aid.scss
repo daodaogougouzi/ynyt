@@ -1,0 +1,82 @@
+.temp-page {
+  min-height: 100vh;
+  background: #f5f7fa;
+}
+
+.temp-scroll {
+  height: calc(100vh - 88rpx);
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 14rpx;
+}
+
+.step-dot {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background: #4a90e2;
+  margin-top: 10rpx;
+  margin-right: 14rpx;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-title {
+  display: block;
+  font-size: 26rpx;
+  color: #2d3a4b;
+  font-weight: 600;
+}
+
+.step-desc {
+  display: block;
+  font-size: 24rpx;
+  color: #5d6b7f;
+  margin-top: 4rpx;
+}
+
+.material-item {
+  font-size: 25rpx;
+  color: #44536a;
+  margin-bottom: 8rpx;
+}
+
+.faq-item {
+  border: 1rpx solid #e8edf4;
+  border-radius: 12rpx;
+  padding: 16rpx;
+  margin-bottom: 12rpx;
+}
+
+.faq-q {
+  display: block;
+  color: #2d3a4b;
+  font-size: 25rpx;
+  font-weight: 600;
+  margin-bottom: 8rpx;
+}
+
+.faq-a {
+  display: block;
+  color: #5d6b7f;
+  font-size: 24rpx;
+  line-height: 1.6;
+}
+
+.contact-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 16rpx;
+  margin-bottom: 10rpx;
+}
+
+.contact-label,
+.contact-value {
+  font-size: 24rpx;
+  color: #4b5b71;
+}

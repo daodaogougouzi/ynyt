@@ -1,0 +1,425 @@
+[
+  {
+    "id": "recognition-1776609443301-9868",
+    "studentId": "student-002",
+    "profile": {
+      "studentNo": "20250002",
+      "name": "李文婷",
+      "college": "公共卫生学院",
+      "collegeKey": "public-health",
+      "major": "预防医学",
+      "className": "预防医学2班",
+      "grade": "大三",
+      "phone": "13800000002"
+    },
+    "selectedRuleIds": [
+      "R22"
+    ],
+    "selectedRuleLabels": [
+      "农村（含县镇）户籍"
+    ],
+    "supplementalNote": "",
+    "materials": [
+      "户口簿"
+    ],
+    "attachments": [],
+    "academicYear": "2025-2026",
+    "systemScore": 1,
+    "systemLevel": "未认定",
+    "systemTag": "未认定",
+    "reviewStatus": "待审核",
+    "teacherAdjustScore": 0,
+    "finalScore": 1,
+    "finalLevel": "未认定",
+    "finalTag": "未认定",
+    "confirmedRuleIds": [],
+    "confirmedRuleLabels": [],
+    "reviewComment": "",
+    "submittedAt": "2026-04-19T14:37:23.301Z",
+    "reviewedAt": ""
+  },
+  {
+    "id": "recognition-1775646335694-2544",
+    "studentId": "student-008",
+    "profile": {
+      "studentNo": "20250008",
+      "name": "黄子轩",
+      "college": "医学技术学院",
+      "collegeKey": "medical-technology",
+      "major": "医学检验技术",
+      "className": "医检1班",
+      "grade": "大二",
+      "phone": "13800000008"
+    },
+    "selectedRuleIds": [
+      "R20"
+    ],
+    "selectedRuleLabels": [
+      "父母一方抚养"
+    ],
+    "supplementalNote": "recognition smoke3101-1775646335649",
+    "materials": [
+      "manual material note"
+    ],
+    "attachments": [],
+    "academicYear": "2025-2026",
+    "systemScore": 35,
+    "systemLevel": "一般困难",
+    "systemTag": "三类贫困生",
+    "reviewStatus": "审核通过",
+    "teacherAdjustScore": 0,
+    "finalScore": 35,
+    "finalLevel": "一般困难",
+    "finalTag": "三类贫困生",
+    "confirmedRuleIds": [
+      "R20"
+    ],
+    "confirmedRuleLabels": [
+      "父母一方抚养"
+    ],
+    "reviewComment": "recognition pass smoke3101-1775646335649",
+    "submittedAt": "2026-04-08T11:05:35.695Z",
+    "reviewedAt": "2026-04-08T11:05:35.703Z",
+    "clearInvalid": false
+  },
+  {
+    "id": "recognition-1775645205903-1560",
+    "studentId": "student-007",
+    "profile": {
+      "studentNo": "20250007",
+      "name": "周雨彤",
+      "college": "公共卫生学院",
+      "collegeKey": "public-health",
+      "major": "预防医学",
+      "className": "预防医学1班",
+      "grade": "大二",
+      "phone": "13800000007"
+    },
+    "selectedRuleIds": [
+      "R20"
+    ],
+    "selectedRuleLabels": [
+      "父母一方抚养"
+    ],
+    "supplementalNote": "recognition smoke-1775645205833",
+    "materials": [
+      "manual material note"
+    ],
+    "attachments": [],
+    "academicYear": "2025-2026",
+    "systemScore": 35,
+    "systemLevel": "一般困难",
+    "systemTag": "三类贫困生",
+    "reviewStatus": "审核通过",
+    "teacherAdjustScore": 0,
+    "finalScore": 35,
+    "finalLevel": "一般困难",
+    "finalTag": "三类贫困生",
+    "confirmedRuleIds": [
+      "R20"
+    ],
+    "confirmedRuleLabels": [
+      "父母一方抚养"
+    ],
+    "reviewComment": "recognition pass smoke-1775645205833",
+    "submittedAt": "2026-04-08T10:46:45.903Z",
+    "reviewedAt": "2026-04-08T10:46:45.918Z",
+    "clearInvalid": false
+  },
+  {
+    "id": "recognition-1775645058595-5901",
+    "studentId": "student-006",
+    "profile": {
+      "studentNo": "20250006",
+      "name": "刘嘉宁",
+      "college": "药学院",
+      "collegeKey": "pharmacy",
+      "major": "临床药学",
+      "className": "临药2班",
+      "grade": "大一",
+      "phone": "13800000006"
+    },
+    "selectedRuleIds": [
+      "R20"
+    ],
+    "selectedRuleLabels": [
+      "父母一方抚养"
+    ],
+    "supplementalNote": "�����ع飺��ʦ�������ϸ����֤",
+    "materials": [
+      "���֤������д�������"
+    ],
+    "attachments": [],
+    "academicYear": "2025-2026",
+    "systemScore": 35,
+    "systemLevel": "一般困难",
+    "systemTag": "三类贫困生",
+    "reviewStatus": "审核通过",
+    "teacherAdjustScore": 0,
+    "finalScore": 35,
+    "finalLevel": "一般困难",
+    "finalTag": "三类贫困生",
+    "confirmedRuleIds": [
+      "R20"
+    ],
+    "confirmedRuleLabels": [
+      "父母一方抚养"
+    ],
+    "reviewComment": "Auto smoke pass",
+    "submittedAt": "2026-04-08T10:44:18.596Z",
+    "reviewedAt": "2026-04-08T10:45:47.709Z",
+    "clearInvalid": false
+  },
+  {
+    "id": "recognition-001",
+    "studentId": "student-001",
+    "profile": {
+      "studentNo": "20250001",
+      "name": "张晓雨",
+      "college": "药学院",
+      "collegeKey": "pharmacy",
+      "major": "药学",
+      "className": "药学1班",
+      "grade": "大二",
+      "phone": "13800000000"
+    },
+    "selectedRuleIds": [
+      "R01",
+      "R36"
+    ],
+    "selectedRuleLabels": [
+      "脱贫家庭学生",
+      "2人（含本人）及以上在上学"
+    ],
+    "supplementalNote": "家中长期存在实际经济压力。",
+    "materials": [
+      "脱贫家庭相关证件、户口簿户主首页、户口簿学生本人页",
+      "户口簿、学生证注册页"
+    ],
+    "attachments": [],
+    "academicYear": "2025-2026",
+    "systemScore": 93,
+    "systemLevel": "特别困难",
+    "systemTag": "一类贫困生",
+    "reviewStatus": "审核通过",
+    "teacherAdjustScore": 0,
+    "finalScore": 93,
+    "finalLevel": "特别困难",
+    "finalTag": "一类贫困生",
+    "confirmedRuleIds": [
+      "R01",
+      "R36"
+    ],
+    "confirmedRuleLabels": [
+      "脱贫家庭学生",
+      "2人（含本人）及以上在上学"
+    ],
+    "reviewComment": "材料齐全，认定为特别困难。",
+    "submittedAt": "2026-04-02T09:00:00.000Z",
+    "reviewedAt": "2026-04-03T10:30:00.000Z",
+    "clearInvalid": false
+  },
+  {
+    "id": "recognition-002",
+    "studentId": "student-002",
+    "profile": {
+      "studentNo": "20250002",
+      "name": "李文婷",
+      "college": "公共卫生学院",
+      "collegeKey": "public-health",
+      "major": "预防医学",
+      "className": "预防医学2班",
+      "grade": "大三",
+      "phone": "13800000002"
+    },
+    "selectedRuleIds": [
+      "R20",
+      "R27",
+      "R36"
+    ],
+    "selectedRuleLabels": [
+      "父母一方抚养",
+      "家庭人均年收入低于就读地年人均可支配收入",
+      "2人（含本人）及以上在上学"
+    ],
+    "supplementalNote": "父亲长期外出务工不稳定，家庭日常支出压力较大。",
+    "materials": [
+      "相关证件或手写情况描述（含申请人签名和居委会或村委会联系电话）、户口簿户主首页、户口簿父亲或母亲本人页、户口簿学生本人页",
+      "手写相关情况描述，需含申请人签名和所在居委会或村委会联系电话",
+      "户口簿、学生证注册页"
+    ],
+    "attachments": [
+      {
+        "id": "attachment-002-1",
+        "name": "家庭情况说明.txt",
+        "type": "text/plain",
+        "size": 128,
+        "sizeLabel": "128B",
+        "contentBase64": "U2FtcGxlIGZhbWlseSBzdGF0ZW1lbnQgZm9yIG1vY2sgcmVjb2duaXRpb24u"
+      }
+    ],
+    "academicYear": "2025-2026",
+    "systemScore": 41,
+    "systemLevel": "困难",
+    "systemTag": "二类贫困生",
+    "reviewStatus": "驳回",
+    "teacherAdjustScore": 0,
+    "finalScore": 41,
+    "finalLevel": "困难",
+    "finalTag": "二类贫困生",
+    "confirmedRuleIds": [
+      "R20",
+      "R27",
+      "R36"
+    ],
+    "confirmedRuleLabels": [
+      "父母一方抚养",
+      "家庭人均年收入低于就读地年人均可支配收入",
+      "2人（含本人）及以上在上学"
+    ],
+    "reviewComment": "123",
+    "submittedAt": "2026-04-06T08:20:00.000Z",
+    "reviewedAt": "2026-04-07T10:56:52.675Z",
+    "clearInvalid": false
+  },
+  {
+    "id": "recognition-003",
+    "studentId": "student-003",
+    "profile": {
+      "studentNo": "20250003",
+      "name": "陈宇航",
+      "college": "医学技术学院",
+      "collegeKey": "medical-technology",
+      "major": "医学检验技术",
+      "className": "医检2班",
+      "grade": "大四",
+      "phone": "13800000003"
+    },
+    "selectedRuleIds": [
+      "R17",
+      "R24",
+      "R36"
+    ],
+    "selectedRuleLabels": [
+      "家庭遭受重大自然灾害，受灾严重（一年以上两年以内）",
+      "父母均没有工作（不含农村种植户或养殖户）",
+      "2人（含本人）及以上在上学"
+    ],
+    "supplementalNote": "家庭在前两年受灾后收入尚未恢复。",
+    "materials": [
+      "相关证件或手写相关情况描述（需含申请人签名和所在居委会或村委会联系电话）、户口簿户主首页、户口簿学生本人页",
+      "失业证或其他佐证材料",
+      "户口簿、学生证注册页"
+    ],
+    "attachments": [],
+    "academicYear": "2025-2026",
+    "systemScore": 56,
+    "systemLevel": "困难",
+    "systemTag": "二类贫困生",
+    "reviewStatus": "审核通过",
+    "teacherAdjustScore": 0,
+    "finalScore": 56,
+    "finalLevel": "困难",
+    "finalTag": "二类贫困生",
+    "confirmedRuleIds": [
+      "R17",
+      "R24",
+      "R36"
+    ],
+    "confirmedRuleLabels": [
+      "家庭遭受重大自然灾害，受灾严重（一年以上两年以内）",
+      "父母均没有工作（不含农村种植户或养殖户）",
+      "2人（含本人）及以上在上学"
+    ],
+    "reviewComment": "情况属实，认定为困难。",
+    "submittedAt": "2026-04-01T07:50:00.000Z",
+    "reviewedAt": "2026-04-02T11:15:00.000Z",
+    "clearInvalid": false
+  },
+  {
+    "id": "recognition-004",
+    "studentId": "student-004",
+    "profile": {
+      "studentNo": "20250004",
+      "name": "王嘉怡",
+      "college": "第二临床医学院",
+      "collegeKey": "second-clinical",
+      "major": "临床医学",
+      "className": "临床3班",
+      "grade": "大二",
+      "phone": "13800000004"
+    },
+    "selectedRuleIds": [
+      "R26",
+      "R27"
+    ],
+    "selectedRuleLabels": [
+      "农村个体小型种植户或个体小型养殖户（或两者均是）",
+      "家庭人均年收入低于就读地年人均可支配收入"
+    ],
+    "supplementalNote": "已补充家庭收入情况说明。",
+    "materials": [
+      "手写相关情况描述，需含申请人签名和所在居委会或村委会联系电话"
+    ],
+    "attachments": [],
+    "academicYear": "2025-2026",
+    "systemScore": 4,
+    "systemLevel": "未认定",
+    "systemTag": "未认定",
+    "reviewStatus": "驳回",
+    "teacherAdjustScore": 0,
+    "finalScore": 4,
+    "finalLevel": "未认定",
+    "finalTag": "未认定",
+    "confirmedRuleIds": [],
+    "confirmedRuleLabels": [],
+    "reviewComment": "现有材料不足以支持困难认定，请补充有效证明后再申请。",
+    "submittedAt": "2026-03-29T09:40:00.000Z",
+    "reviewedAt": "2026-03-30T09:10:00.000Z",
+    "clearInvalid": false
+  },
+  {
+    "id": "recognition-005",
+    "studentId": "student-005",
+    "profile": {
+      "studentNo": "20250005",
+      "name": "何思远",
+      "college": "公共卫生学院",
+      "collegeKey": "public-health",
+      "major": "卫生检验与检疫",
+      "className": "卫检1班",
+      "grade": "大一",
+      "phone": "13800000005"
+    },
+    "selectedRuleIds": [
+      "R20"
+    ],
+    "selectedRuleLabels": [
+      "父母一方抚养"
+    ],
+    "supplementalNote": "家庭由母亲单独抚养。",
+    "materials": [
+      "相关证件或手写情况描述（含申请人签名和居委会或村委会联系电话）、户口簿户主首页、户口簿父亲或母亲本人页、户口簿学生本人页"
+    ],
+    "attachments": [],
+    "academicYear": "2025-2026",
+    "systemScore": 35,
+    "systemLevel": "一般困难",
+    "systemTag": "三类贫困生",
+    "reviewStatus": "审核通过",
+    "teacherAdjustScore": 0,
+    "finalScore": 35,
+    "finalLevel": "一般困难",
+    "finalTag": "三类贫困生",
+    "confirmedRuleIds": [
+      "R20"
+    ],
+    "confirmedRuleLabels": [
+      "父母一方抚养"
+    ],
+    "reviewComment": "符合一般困难标准。",
+    "submittedAt": "2026-04-04T08:30:00.000Z",
+    "reviewedAt": "2026-04-05T09:20:00.000Z",
+    "clearInvalid": false
+  }
+]

@@ -1,0 +1,41 @@
+<view class="announcement-detail-page">
+  <navigation-bar background="#F5F7FA" color="#2D3A4B" title="公告详情"></navigation-bar>
+
+  <scroll-view class="announcement-detail-scroll" scroll-y>
+    <view class="container-page">
+      <view wx:if="{{loading}}" class="card">
+        <text class="loading-text">正在加载公告详情...</text>
+      </view>
+
+      <block wx:if="{{!loading && announcement}}">
+        <view class="card">
+          <image class="announcement-cover" src="{{announcement.coverImage}}" mode="aspectFill"></image>
+          <text class="announcement-title">{{announcement.title}}</text>
+          <view class="announcement-meta">
+            <text class="announcement-publisher">发布人：{{announcement.publisher || '学生资助管理中心'}}</text>
+            <text class="announcement-date">发布时间：{{announcementDate}}</text>
+          </view>
+        </view>
+
+        <view class="card">
+          <view class="section-title">公告内容</view>
+          <text class="announcement-content">{{announcement.content}}</text>
+        </view>
+
+        <view class="card">
+          <view class="section-title">公告附件</view>
+          <block wx:if="{{announcement.attachments.length > 0}}">
+            <view class="attachment-item" wx:for="{{announcement.attachments}}" wx:key="id">
+              <view class="attachment-main">
+                <text class="attachment-name">{{item.name}}</text>
+                <text class="attachment-meta">{{item.type}} · {{item.sizeLabel}}</text>
+              </view>
+              <button class="secondary-btn attachment-btn" bindtap="onDownloadAttachment" data-id="{{item.id}}">下载</button>
+            </view>
+          </block>
+          <text wx:else class="empty-tip">暂无可下载附件。</text>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,103 @@
+<view class="index-page">
+  <navigation-bar back="{{false}}" background="#F5F7FA" color="#2D3A4B">
+    <view slot="center" class="nav-title">易暖医途</view>
+    <view slot="right" class="nav-ai" bindtap="openAiPanel">AI</view>
+  </navigation-bar>
+
+  <scroll-view class="index-scroll" scroll-y>
+    <view class="container-page">
+      <view wx:if="{{loading}}" class="card">
+        <text class="empty-tip">正在加载首页数据...</text>
+      </view>
+
+      <block wx:if="{{!loading}}">
+        <view class="card">
+          <swiper wx:if="{{announcements.length > 0}}" autoplay circular indicator-dots interval="3200" duration="450" class="banner-swiper">
+            <block wx:for="{{announcements}}" wx:key="id">
+              <swiper-item>
+                <view class="banner-announcement" bindtap="onOpenAnnouncementDetail" data-id="{{item.id}}">
+                  <image class="banner-cover" src="{{item.coverImage}}" mode="aspectFill"></image>
+                  <view class="banner-overlay">
+                    <text class="banner-title">{{item.title}}</text>
+                    <text class="banner-meta">{{item.publisher || '学生资助管理中心'}} · {{item.date}}</text>
+                  </view>
+                </view>
+              </swiper-item>
+            </block>
+          </swiper>
+          <view wx:else class="banner-empty">暂无公告</view>
+        </view>
+
+        <view class="card">
+          <view class="section-title">核心服务</view>
+          <view class="quick-grid">
+            <block wx:for="{{quickActions}}" wx:key="key">
+              <view class="quick-item" bindtap="onTapQuickAction" data-action="{{item.action}}">
+                <view class="quick-icon">{{item.icon}}</view>
+                <text class="quick-text">{{item.label}}</text>
+              </view>
+            </block>
+          </view>
+        </view>
+
+        <view class="card" wx:if="{{recommendations.length > 0}}">
+          <view class="section-title">个性化推荐榜单</view>
+          <view class="recommend-item" wx:for="{{recommendations}}" wx:key="id" bindtap="onOpenScholarshipDetail" data-id="{{item.id}}">
+            <view class="recommend-head">
+              <text class="recommend-name">{{item.name}}</text>
+              <text class="recommend-score">{{item.score}}分</text>
+            </view>
+            <text class="recommend-meta">匹配等级：{{item.matchLevel}} · {{item.amountText}}</text>
+            <text class="recommend-meta">截止时间：{{item.deadline}}</text>
+            <view wx:if="{{item.reasons.length > 0}}" class="recommend-reason-list">
+              <text class="recommend-reason" wx:for="{{item.reasons}}" wx:key="*this">• {{item}}</text>
+            </view>
+          </view>
+        </view>
+
+
+        <view class="card">
+          <view class="section-title">最新公告栏</view>
+          <scroll-view class="notice-scroll" scroll-x>
+            <view class="notice-row">
+              <block wx:for="{{announcements}}" wx:key="id">
+                <view class="notice-item" bindtap="onOpenAnnouncementDetail" data-id="{{item.id}}">
+                  <image class="notice-cover" src="{{item.coverImage}}" mode="aspectFill"></image>
+                  <text class="notice-title">{{item.title}}</text>
+                  <view class="notice-footer">
+                    <text class="notice-publisher">{{item.publisher || '学生资助管理中心'}}</text>
+                    <text class="notice-date">{{item.date}}</text>
+                  </view>
+                </view>
+              </block>
+            </view>
+          </scroll-view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+
+  <view wx:if="{{showScholarshipModal}}" class="policy-mask" bindtap="closeScholarshipModal"></view>
+  <view wx:if="{{showScholarshipModal}}" class="policy-modal">
+    <view class="policy-modal-header">
+      <text class="policy-modal-title">奖助学金列表</text>
+      <text class="policy-modal-close" bindtap="closeScholarshipModal">关闭</text>
+    </view>
+    <scroll-view class="policy-modal-scroll" scroll-y>
+      <block wx:for="{{scholarships}}" wx:key="id">
+        <view class="policy-modal-item" bindtap="onOpenScholarshipDetail" data-id="{{item.id}}">
+          <view class="policy-modal-head">
+            <text class="policy-modal-name">{{item.name}}</text>
+            <text class="policy-modal-amount">{{item.amountText}}</text>
+          </view>
+          <text class="policy-modal-intro">{{item.intro}}</text>
+          <view class="policy-modal-foot">
+            <text class="policy-modal-deadline">提示：{{item.deadline}}</text>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+  <ai-chat id="indexAiChat" scene="onboarding" entry-only="{{true}}" bindinvite="openAiPanel"></ai-chat>
+</view>

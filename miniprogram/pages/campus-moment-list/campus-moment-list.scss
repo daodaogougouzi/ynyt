@@ -1,0 +1,170 @@
+.record-page {
+  min-height: 100vh;
+  background: #f5f7fa;
+}
+
+.record-scroll {
+  height: calc(100vh - 88rpx);
+}
+
+.record-item {
+  border: 1rpx solid #e8edf4;
+}
+
+.record-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12rpx;
+  margin-bottom: 12rpx;
+}
+
+.record-time {
+  color: #8a94a6;
+  font-size: 22rpx;
+}
+
+.record-main,
+.record-sub,
+.record-link {
+  display: block;
+}
+
+.record-main {
+  color: #2d3a4b;
+  font-size: 27rpx;
+  font-weight: 600;
+  margin-bottom: 8rpx;
+}
+
+.record-sub {
+  color: #5d6b7f;
+  font-size: 24rpx;
+  line-height: 1.6;
+}
+
+.record-link {
+  margin-top: 12rpx;
+  color: #4a90e2;
+  font-size: 24rpx;
+}
+
+.empty-tip {
+  color: #8a94a6;
+  font-size: 24rpx;
+}
+
+.modal-mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 995;
+}
+
+.modal-panel {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 14vh;
+  background: #ffffff;
+  border-top-left-radius: 24rpx;
+  border-top-right-radius: 24rpx;
+  z-index: 996;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  height: 92rpx;
+  border-bottom: 1rpx solid #edf2f8;
+  padding: 0 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-title {
+  font-size: 30rpx;
+  color: #2d3a4b;
+  font-weight: 600;
+}
+
+.modal-close {
+  font-size: 24rpx;
+  color: #8a94a6;
+}
+
+.modal-scroll-wrap {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.modal-scroll {
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+  padding: 18rpx 22rpx calc(30rpx + env(safe-area-inset-bottom));
+}
+
+.detail-card {
+  border: 1rpx solid #e8edf4;
+  border-radius: 12rpx;
+  padding: 14rpx;
+  background: #f9fbff;
+}
+
+.detail-title {
+  display: block;
+  color: #2d3a4b;
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-bottom: 8rpx;
+}
+
+.detail-meta {
+  display: block;
+  color: #5f6f84;
+  font-size: 22rpx;
+  line-height: 1.6;
+}
+
+.detail-content {
+  display: block;
+  color: #2d3a4b;
+  font-size: 24rpx;
+  line-height: 1.6;
+  margin-top: 8rpx;
+}
+
+.detail-image {
+  width: 100%;
+  border-radius: 12rpx;
+  margin-top: 12rpx;
+  background: #eef4ff;
+}
+
+.detail-image-count {
+  display: block;
+  margin-top: 8rpx;
+  color: #8a94a6;
+  font-size: 22rpx;
+}
+
+.detail-gallery {
+  margin-top: 10rpx;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10rpx;
+}
+
+.detail-gallery-image {
+  width: 100%;
+  height: 160rpx;
+  border-radius: 10rpx;
+  background: #eef4ff;
+}

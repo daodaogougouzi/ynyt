@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>易暖医途老师端</title>
+    <link rel="stylesheet" href="/teacher/styles.css" />
+  </head>
+  <body>
+    <div class="login-shell" id="teacherLoginShell">
+      <div class="login-card">
+        <div class="login-brand">
+          <img class="brand-logo" src="/teacher/logo.png" alt="易暖医途logo" />
+          <div>
+            <div class="brand-kicker">易暖医途</div>
+            <h1>老师端登录</h1>
+          </div>
+        </div>
+        <p class="subtext">请输入演示账号进入老师端。</p>
+        <div class="login-field">
+          <label for="teacherName">姓名</label>
+          <input id="teacherName" placeholder="请输入姓名" />
+        </div>
+        <div class="login-field">
+          <label for="teacherPassword">密码</label>
+          <input id="teacherPassword" type="password" placeholder="请输入密码" />
+        </div>
+        <button id="teacherLoginBtn" class="primary" type="button">登录老师端</button>
+        <p class="login-tip">演示账号：李老师 / 123456</p>
+      </div>
+    </div>
+
+    <div class="layout hidden" id="teacherAppShell">
+      <aside class="sidebar">
+        <div class="brand brand-with-logo">
+          <img class="brand-logo brand-logo-sm" src="/teacher/logo.png" alt="易暖医途logo" />
+          <div class="brand-text">
+            <span>易暖医途</span>
+            <small>老师端</small>
+          </div>
+        </div>
+        <button class="nav-btn" data-panel="dashboard" type="button">仪表盘</button>
+        <button class="nav-btn" data-panel="summary-report" type="button">AI报告</button>
+        <button class="nav-btn" data-panel="students" type="button">学生管理</button>
+        <button class="nav-btn" data-panel="recognitions" type="button">认定审核</button>
+        <button class="nav-btn" data-panel="scholarships" type="button">奖助维护</button>
+        <button class="nav-btn" data-panel="applications" type="button">奖助申请审核</button>
+        <button class="nav-btn" data-panel="work-study" type="button">勤工岗位管理</button>
+        <button class="nav-btn" data-panel="care-alerts" type="button">高关怀提醒</button>
+        <button class="nav-btn" data-panel="deadline-reminders" type="button">截止提醒</button>
+        <button class="nav-btn" data-panel="campus-moments" type="button">校园点滴审核</button>
+        <button class="nav-btn" data-panel="announcements" type="button">公告维护</button>
+      </aside>
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <h1 id="panelTitle">仪表盘</h1>
+            <p class="subtitle" id="panelSubtitle">展示老师端整体概览和业务提醒</p>
+          </div>
+          <div class="topbar-actions">
+            <button id="teacherAiLauncherBtn" class="secondary" type="button">AI老师助手</button>
+            <button id="refreshBtn" class="primary" type="button">刷新数据</button>
+            <button id="teacherLogoutBtn" class="inline-btn" type="button">退出登录</button>
+          </div>
+        </header>
+
+        <section id="dashboard" class="panel active">
+          <div class="stats-grid" id="statsGrid"></div>
+          <div class="chart-grid" id="dashboardCharts"></div>
+          <div class="chart-grid" id="dashboardInsights"></div>
+          <div class="summary-grid" id="dashboardSummary"></div>
+          <div class="summary-grid" id="dashboardReminders"></div>
+        </section>
+
+        <section id="summary-report" class="panel">
+          <div class="section-card">
+            <div class="section-header summary-report-header">
+              <div>
+                <h2>AI 周期报告</h2>
+                <p class="subtext">基于老师端真实产生数据生成月度、季度与年度总结。</p>
+              </div>
+              <div class="summary-report-toolbar">
+                <div class="summary-report-tabs" id="summaryReportTabs">
+                  <button class="inline-btn summary-report-tab active" data-report-type="month" type="button">月度</button>
+                  <button class="inline-btn summary-report-tab" data-report-type="quarter" type="button">季度</button>
+                  <button class="inline-btn summary-report-tab" data-report-type="year" type="button">年度</button>
+                </div>
+                <select id="summaryReportPeriodValue"></select>
+                <button id="summaryReportGenerateBtn" class="primary" type="button">生成报告</button>
+              </div>
+            </div>
+            <p id="summaryReportMeta" class="subtext">正在汇总老师端 AI 周期报告。</p>
+            <div class="stats-grid" id="summaryReportOverview"></div>
+            <div class="summary-grid" id="summaryReportNarrative"></div>
+            <div class="chart-grid" id="summaryReportDimensions"></div>
+            <div class="summary-grid" id="summaryReportToplists"></div>
+            <div class="summary-grid" id="summaryReportActions"></div>
+          </div>
+        </section>
+
+        <section id="students" class="panel">
+          <div class="section-card">
+            <div class="section-header">
+              <h2>学生列表</h2>
+              <p class="subtext">查询学生当前困难认定状态、认定记录、奖助情况与心理状态摘要。</p>
+            </div>
+            <div class="filter-row">
+              <input id="studentKeyword" placeholder="搜索姓名 / 学号" />
+              <select id="studentCollegeFilter">
+                <option value="">全部学院</option>
+              </select>
+              <select id="studentLevelFilter">
+                <option value="">全部困难等级</option>
+                <option value="特别困难">特别困难</option>
+                <option value="困难">困难</option>
+                <option value="一般困难">一般困难</option>
+                <option value="未认定">未认定</option>
+              </select>
+              <select id="studentStatusFilter">
+                <option value="">全部认定状态</option>
+                <option value="未提交">未提交</option>
+                <option value="待审核">待审核</option>
+                <option value="审核通过">审核通过</option>
+                <option value="退回补充">退回补充</option>
+                <option value="驳回">驳回</option>
+              </select>
+              <button id="studentSearchBtn" class="secondary" type="button">查询</button>
+              <button id="studentResetBtn" class="inline-btn" type="button">重置</button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>学生</th>
+                    <th>学院班级</th>
+                    <th>困难认定状态</th>
+                    <th>心理状态摘要</th>
+                    <th>奖助记录</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="studentTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="student-detail" class="panel">
+          <div class="section-card">
+            <div class="section-header">
+              <div>
+                <h2 id="studentDetailHeading">学生详情</h2>
+                <p id="studentDetailSubheading" class="subtext">查看学生完整画像、资助记录与心理变化趋势。</p>
+              </div>
+              <button id="studentDetailBackBtn" class="inline-btn" type="button">返回学生列表</button>
+            </div>
+            <div id="studentDetailPanelBody"></div>
+          </div>
+        </section>
+
+        <section id="recognitions" class="panel">
+          <div class="section-card">
+            <div class="section-header">
+              <h2>认定申请列表</h2>
+              <p class="subtext">支持按状态、学院、资助等级、提交学生快速筛选。</p>
+            </div>
+            <div class="filter-row filter-row-4">
+              <input id="recognitionKeywordFilter" placeholder="搜索姓名 / 学号" />
+              <select id="recognitionCollegeFilter">
+                <option value="">全部学院</option>
+              </select>
+              <select id="recognitionLevelFilter">
+                <option value="">全部系统等级</option>
+                <option value="特别困难">特别困难</option>
+                <option value="困难">困难</option>
+                <option value="一般困难">一般困难</option>
+                <option value="未认定">未认定</option>
+              </select>
+              <select id="recognitionStatusFilter">
+                <option value="">全部状态</option>
+                <option value="待审核">待审核</option>
+                <option value="审核通过">审核通过</option>
+                <option value="退回补充">退回补充</option>
+                <option value="驳回">驳回</option>
+              </select>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>学生</th>
+                    <th>学院</th>
+                    <th>系统预估</th>
+                    <th>状态</th>
+                    <th>提交时间</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="recognitionTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="scholarships" class="panel">
+          <div class="section-card">
+            <div class="section-header">
+              <h2>奖助项目维护</h2>
+              <p class="subtext">维护项目金额展示、资格说明、开放状态与认定类型限制。</p>
+            </div>
+            <div class="filter-row filter-row-4">
+              <input id="scholarshipKeywordFilter" placeholder="搜索项目名称 / 资助方" />
+              <select id="scholarshipCategoryFilter">
+                <option value="">全部分类</option>
+              </select>
+              <select id="scholarshipTypeFilter">
+                <option value="">全部类型</option>
+                <option value="奖学金">奖学金</option>
+                <option value="助学金">助学金</option>
+                <option value="资助项目">资助项目</option>
+              </select>
+              <select id="scholarshipOpenFilter">
+                <option value="">全部开放状态</option>
+                <option value="open">开放申请</option>
+                <option value="closed">关闭申请</option>
+              </select>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>奖助学金名称</th>
+                    <th>类型</th>
+                    <th>金额</th>
+                    <th>资格说明</th>
+                    <th>开放申请</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="scholarshipTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="applications" class="panel">
+          <div class="section-card">
+            <div class="section-header">
+              <h2>奖助申请列表</h2>
+              <p class="subtext">按学生、项目分类、资助等级和状态筛选奖助申请。</p>
+            </div>
+            <div class="filter-row filter-row-4">
+              <input id="applicationKeywordFilter" placeholder="搜索姓名 / 学号 / 项目名称" />
+              <select id="applicationCategoryFilter">
+                <option value="">全部项目分类</option>
+              </select>
+              <select id="applicationRecognitionFilter">
+                <option value="">全部认定等级</option>
+                <option value="特别困难">特别困难</option>
+                <option value="困难">困难</option>
+                <option value="一般困难">一般困难</option>
+                <option value="未认定">未认定</option>
+              </select>
+              <select id="applicationStatusFilter">
+                <option value="">全部状态</option>
+                <option value="待审核">待审核</option>
+                <option value="审核通过">审核通过</option>
+                <option value="驳回">驳回</option>
+              </select>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>学生</th>
+                    <th>申请项目</th>
+                    <th>认定快照</th>
+                    <th>状态</th>
+                    <th>提交时间</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="applicationTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="work-study" class="panel">
+          <div class="section-card">
+            <div class="section-header">
+              <h2>勤工岗位维护</h2>
+              <p class="subtext">先维护岗位开放状态与条件，再处理学生申请审核。</p>
+            </div>
+            <div class="filter-row filter-row-4">
+              <input id="workStudyJobKeywordFilter" placeholder="搜索岗位名称 / 部门 / 地点" />
+              <select id="workStudyJobOpenFilter">
+                <option value="">全部状态</option>
+                <option value="open">开放申请</option>
+                <option value="closed">关闭申请</option>
+              </select>
+              <button id="workStudyJobSearchBtn" class="secondary" type="button">查询</button>
+              <button id="workStudyJobCreateBtn" class="primary" type="button">新增岗位</button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>岗位</th>
+                    <th>时长与薪资</th>
+                    <th>要求</th>
+                    <th>申请进度</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="workStudyJobTable"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="section-card work-study-application-card">
+            <div class="section-header">
+              <h2>勤工岗位申请审核</h2>
+              <p class="subtext">按状态和关键词筛选并审核学生申请。</p>
+            </div>
+            <div class="filter-row filter-row-4">
+              <input id="workStudyKeywordFilter" placeholder="搜索学生 / 学号 / 岗位名称" />
+              <select id="workStudyStatusFilter">
+                <option value="">全部状态</option>
+                <option value="待审核">待审核</option>
+                <option value="审核通过">审核通过</option>
+                <option value="驳回">驳回</option>
+              </select>
+              <button id="workStudySearchBtn" class="secondary" type="button">查询</button>
+              <button id="workStudyResetBtn" class="inline-btn" type="button">重置</button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>学生</th>
+                    <th>岗位</th>
+                    <th>匹配度</th>
+                    <th>状态</th>
+                    <th>提交时间</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="workStudyTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="care-alerts" class="panel">
+          <div class="section-card">
+            <div class="section-header">
+              <h2>高关怀提醒看板</h2>
+              <p class="subtext">按优先级查看树洞情绪预警，记录跟进处理意见。</p>
+            </div>
+            <div class="filter-row filter-row-4">
+              <input id="careAlertKeywordFilter" placeholder="搜索学生姓名 / 学号 / 学院" />
+              <select id="careAlertLevelFilter">
+                <option value="">全部等级</option>
+                <option value="high">红色预警</option>
+                <option value="medium">黄色预警</option>
+                <option value="low">蓝色观察</option>
+              </select>
+              <select id="careAlertStatusFilter">
+                <option value="">全部状态</option>
+                <option value="待关注">待关注</option>
+                <option value="已处理">已处理</option>
+                <option value="可观察">可观察</option>
+              </select>
+              <div class="care-alert-tools">
+                <button id="careAlertSearchBtn" class="secondary" type="button">查询</button>
+                <button id="openEmotionKeywordsBtn" class="primary" type="button">提示词维护</button>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>学生</th>
+                    <th>风险等级</th>
+                    <th>触发原因</th>
+                    <th>状态</th>
+                    <th>触发时间</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="careAlertTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="deadline-reminders" class="panel">
+          <div class="section-card">
+            <div class="section-header">
+              <h2>截止提醒</h2>
+              <p class="subtext">处理奖助项目即将截止的学生提醒，减少漏报和超时。</p>
+            </div>
+            <div class="filter-row filter-row-4">
+              <input id="deadlineReminderKeywordFilter" placeholder="搜索学生姓名 / 学号 / 学院 / 项目" />
+              <select id="deadlineReminderStatusFilter">
+                <option value="">全部状态</option>
+                <option value="pending">待处理</option>
+                <option value="read">已读待处理</option>
+                <option value="handled">已处理</option>
+                <option value="overdue">已超时</option>
+              </select>
+              <button id="deadlineReminderSearchBtn" class="secondary" type="button">查询</button>
+              <button id="deadlineReminderResetBtn" class="inline-btn" type="button">重置</button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>学生</th>
+                    <th>奖助项目</th>
+                    <th>截止信息</th>
+                    <th>状态</th>
+                    <th>提醒时间</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="deadlineReminderTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="campus-moments" class="panel">
+          <div class="section-card">
+            <div class="section-header">
+              <h2>校园点滴审核</h2>
+              <p class="subtext">审核学生提交的校园点滴内容，决定发布或驳回。</p>
+            </div>
+            <div class="filter-row filter-row-4">
+              <input id="campusMomentKeywordFilter" placeholder="搜索标题 / 内容 / 投稿人" />
+              <select id="campusMomentStatusFilter">
+                <option value="">全部状态</option>
+                <option value="待审核">待审核</option>
+                <option value="已发布">已发布</option>
+                <option value="驳回">驳回</option>
+              </select>
+              <button id="campusMomentSearchBtn" class="secondary" type="button">查询</button>
+              <button id="campusMomentResetBtn" class="inline-btn" type="button">重置</button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>投稿人</th>
+                    <th>标题与内容</th>
+                    <th>图片</th>
+                    <th>审核状态</th>
+                    <th>提交信息</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="campusMomentTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="announcements" class="panel">
+          <div class="section-card">
+            <div class="section-header">
+              <h2>公告维护</h2>
+              <p class="subtext">维护多条公告，支持封面、标题、内容和附件编辑。</p>
+            </div>
+            <div class="filter-row filter-row-4 announcement-filter-row">
+              <input id="announcementKeywordFilter" placeholder="搜索公告标题 / 发布人" />
+              <select id="announcementPublisherFilter">
+                <option value="">全部发布人</option>
+              </select>
+              <button id="announcementSearchBtn" class="secondary" type="button">查询</button>
+              <button id="announcementCreateBtn" class="primary" type="button">新增公告</button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>封面</th>
+                    <th>公告标题</th>
+                    <th>发布人</th>
+                    <th>发布时间</th>
+                    <th>附件数</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody id="announcementTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal" id="detailModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal="true"></div>
+      <div class="modal-dialog">
+        <div class="modal-header">
+          <div>
+            <h2 id="modalTitle">详情</h2>
+            <p id="modalSubtitle" class="subtext"></p>
+          </div>
+          <button id="modalCloseBtn" class="icon-btn" type="button" aria-label="关闭">×</button>
+        </div>
+        <div id="modalBody" class="modal-body"></div>
+        <div id="modalFooter" class="modal-footer"></div>
+      </div>
+    </div>
+
+    <div class="image-preview-modal" id="imagePreviewModal" aria-hidden="true">
+      <div class="image-preview-backdrop" data-close-image-preview="true"></div>
+      <div class="image-preview-dialog">
+        <div class="image-preview-header">
+          <h3 id="imagePreviewTitle">图片预览</h3>
+          <button id="imagePreviewCloseBtn" class="icon-btn" type="button" aria-label="关闭">×</button>
+        </div>
+        <div class="image-preview-body">
+          <img id="imagePreviewContent" class="image-preview-content" src="" alt="图片预览" />
+        </div>
+      </div>
+    </div>
+
+    <script src="/teacher/app.js"></script>
+  </body>
+</html>

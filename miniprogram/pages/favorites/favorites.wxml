@@ -1,0 +1,16 @@
+<view class="simple-page">
+  <navigation-bar back="{{true}}" background="#F5F7FA" color="#2D3A4B" title="我的收藏"></navigation-bar>
+
+  <scroll-view class="simple-scroll" scroll-y>
+    <view class="container-page">
+      <view class="card favorite-item" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" bindtap="onOpenDetail">
+        <text class="item-main">{{item.name}}</text>
+        <text class="item-sub">{{item.type}} · {{item.amountText}}</text>
+        <text class="detail-link">查看奖助详情</text>
+      </view>
+      <view class="card" wx:if="{{!loading && list.length === 0}}">
+        <text class="empty-tip">暂无收藏项目。</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,32 @@
+.ai-chat-room-page {
+  min-height: 100vh;
+  background: #f5f7fa;
+}
+
+.ai-chat-room-body {
+  height: calc(100vh - 88rpx);
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 20rpx calc(20rpx + env(safe-area-inset-bottom));
+  box-sizing: border-box;
+  gap: 16rpx;
+}
+
+.ai-chat-room-intro {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 20rpx 22rpx;
+}
+
+.ai-chat-room-intro-title {
+  display: block;
+  color: #2d3a4b;
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-bottom: 8rpx;
+}
+
+.ai-chat-room-chat {
+  flex: 1;
+  min-height: 0;
+}

@@ -1,0 +1,175 @@
+<view class="policy-detail-page">
+  <navigation-bar background="#F5F7FA" color="#2D3A4B" title="奖助详情"></navigation-bar>
+
+  <scroll-view class="policy-detail-scroll" scroll-y>
+    <view class="container-page">
+      <view wx:if="{{loading}}" class="card">
+        <text class="loading-text">正在加载奖助详情...</text>
+      </view>
+
+      <block wx:if="{{!loading && scholarship && eligibility}}">
+        <view class="card hero-card">
+          <text class="hero-title">{{scholarship.name}}</text>
+          <text class="hero-subtitle">{{scholarship.sponsor}}</text>
+          <view class="hero-tags">
+            <text class="tag">{{scholarship.type}}</text>
+            <text class="tag">{{scholarship.amountText}}</text>
+            <text class="tag {{scholarship.openForApply ? 'tag-success' : 'tag-danger'}}">
+              {{scholarship.openForApply ? '开放申请' : '暂未开放'}}
+            </text>
+          </view>
+          <text class="hero-intro">{{scholarship.intro}}</text>
+          <text class="hero-meta">名额：{{scholarship.quota}}</text>
+          <text class="hero-meta">截止：{{scholarship.deadline}}</text>
+        </view>
+
+        <view class="card">
+          <view class="section-title">当前资格判断</view>
+          <view class="eligibility-box {{eligibility.eligible ? 'eligible' : 'ineligible'}}">
+            <text class="eligibility-title">{{eligibility.eligible ? '可以申请' : '暂不符合条件'}}</text>
+            <text class="eligibility-text">{{eligibility.reason}}</text>
+            <text wx:if="{{eligibility.grantTier}}" class="eligibility-tier">
+              对应档次：{{eligibility.grantTier.label}} · {{eligibility.grantTier.amount}}
+            </text>
+          </view>
+          <block wx:if="{{student}}">
+            <text class="student-meta">当前认定状态：{{student.currentRecognitionStatus}}</text>
+            <text class="student-meta">当前认定等级：{{student.currentRecognitionLevel}}</text>
+          </block>
+          <text wx:else class="student-meta">登录后可查看个人资格判断、认定状态并提交申请。</text>
+        </view>
+
+        <view class="card" wx:if="{{recommendation}}">
+          <view class="section-title">匹配分析</view>
+          <view class="match-box">
+            <view class="match-head">
+              <text class="match-score">{{recommendation.score || 0}}分</text>
+              <text class="tag">{{recommendation.matchLevel || '待提升'}}</text>
+            </view>
+            <text class="match-reason">{{recommendation.aiReason || '系统已根据当前条件生成匹配建议。'}}</text>
+          </view>
+        </view>
+
+        <view class="card" wx:if="{{showAlternativeRecommendations && alternativeRecommendations.length > 0}}">
+          <view class="section-title">你当前可优先尝试的其他项目</view>
+          <view class="alternative-item" wx:for="{{alternativeRecommendations}}" wx:key="id" data-id="{{item.id}}" bindtap="onOpenAlternativeRecommendation">
+            <view class="alternative-head">
+              <text class="alternative-name">{{item.name}}</text>
+              <text class="alternative-score">{{item.score}}分</text>
+            </view>
+            <text class="alternative-meta">{{item.type}} · {{item.amountText}} · {{item.matchLevel}}</text>
+            <text class="alternative-meta">截止：{{item.deadline}}</text>
+            <text class="alternative-reason">{{item.reason}}</text>
+            <text wx:if="{{item.fitAdvice}}" class="alternative-advice">{{item.fitAdvice}}</text>
+          </view>
+        </view>
+
+        <view class="card" wx:if="{{scholarship.amountTiers.length > 0}}">
+          <view class="section-title">金额明细</view>
+          <view class="tier-item" wx:for="{{scholarship.amountTiers}}" wx:key="label">
+            <text class="tier-label">{{item.label}}</text>
+            <text class="tier-amount">{{item.amount}}</text>
+            <text class="tier-note">{{item.note}}</text>
+          </view>
+        </view>
+
+        <view class="card">
+          <view class="section-title">资格说明</view>
+          <text class="detail-text">{{scholarship.restrictionNote}}</text>
+          <view wx:if="{{allowedRecognitionLabels.length > 0}}" class="rule-list">
+            <text class="rule-title">限定认定类型：</text>
+            <text class="rule-item" wx:for="{{allowedRecognitionLabels}}" wx:key="*this">{{item}}</text>
+          </view>
+        </view>
+
+        <view class="card">
+          <view class="section-title">申请条件</view>
+          <text class="condition-item" wx:for="{{scholarship.conditions}}" wx:key="*this">• {{item}}</text>
+        </view>
+
+        <view class="card">
+          <view class="section-title">申报指引</view>
+          <text class="detail-text">{{scholarship.guide}}</text>
+        </view>
+
+        <view class="card">
+          <view class="section-title">申请信息填写</view>
+          <view class="form-group">
+            <text class="form-label">个人简介</text>
+            <textarea
+              class="form-textarea"
+              placeholder="请填写学习表现、实践经历与综合表现。"
+              value="{{applyForm.personalIntro}}"
+              data-field="personalIntro"
+              bindinput="onApplyInput"
+            ></textarea>
+          </view>
+          <view class="form-group">
+            <text class="form-label">家庭情况说明</text>
+            <textarea
+              class="form-textarea"
+              placeholder="请填写家庭收入来源、困难原因与佐证情况。"
+              value="{{applyForm.familySituation}}"
+              data-field="familySituation"
+              bindinput="onApplyInput"
+            ></textarea>
+          </view>
+          <view class="form-group no-margin">
+            <text class="form-label">资助使用计划</text>
+            <textarea
+              class="form-textarea"
+              placeholder="请填写获助后的费用使用安排。"
+              value="{{applyForm.usagePlan}}"
+              data-field="usagePlan"
+              bindinput="onApplyInput"
+            ></textarea>
+          </view>
+        </view>
+
+        <view class="card">
+          <view class="section-title">推荐人分享卡</view>
+          <text class="student-meta">可生成“学长学姐推荐卡”，分享给同学查看并快速进入申请详情。</text>
+          <button class="secondary-btn share-btn" bindtap="onGenerateShareCard" disabled="{{!student || shareGenerating || loading}}">
+            {{shareGenerating ? '正在生成推荐卡...' : '生成推荐卡'}}
+          </button>
+          <view class="share-card-panel" wx:if="{{shareCard}}">
+            <text class="share-card-title">推荐码：{{shareCard.code}}</text>
+            <text class="share-card-meta">生成时间：{{shareCard.createdAt}}</text>
+            <view class="share-card-actions">
+              <button class="secondary-btn" bindtap="onPreviewShareCard">预览推荐卡</button>
+              <button class="secondary-btn" bindtap="onCopyShareText">复制推荐文案</button>
+              <button class="primary-btn" open-type="share">转发给同学</button>
+            </view>
+          </view>
+        </view>
+
+        <view class="card">
+          <view class="section-title">附件材料</view>
+          <text class="student-meta">请上传申请佐证附件（图片、PDF、Word、Excel），最多 5 份。</text>
+          <button class="secondary-btn attachment-btn" bindtap="onChooseApplyAttachments">上传附件</button>
+          <view class="attachment-list" wx:if="{{applyAttachmentList.length > 0}}">
+            <view class="attachment-item" wx:for="{{applyAttachmentList}}" wx:key="id">
+              <view class="attachment-meta">
+                <text class="attachment-name">{{item.name}}</text>
+                <text class="attachment-size">{{item.sizeLabel}}</text>
+              </view>
+              <text class="attachment-remove" data-id="{{item.id}}" bindtap="onRemoveApplyAttachment">移除</text>
+            </view>
+          </view>
+          <text class="empty-tip" wx:if="{{applyAttachmentList.length === 0}}">暂未上传附件。</text>
+        </view>
+
+        <view class="card">
+          <button
+            class="primary-btn apply-btn"
+            disabled="{{!student || !eligibility.eligible || !scholarship.openForApply || submitting || hasScholarshipApplicationThisYear}}"
+            bindtap="onApply"
+          >
+            {{submitting ? '正在提交申请...' : !student ? '登录后可申请' : hasScholarshipApplicationThisYear ? '本学年该项目已申请' : '立即申请'}}
+          </button>
+          <text wx:if="{{hasScholarshipApplicationThisYear}}" class="student-meta">当前学年申请记录：{{appliedScholarshipStatusText}}</text>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>

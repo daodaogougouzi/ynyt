@@ -1,0 +1,71 @@
+<view class="record-page">
+  <navigation-bar back="{{true}}" background="#F5F7FA" color="#2D3A4B" title="校园点滴审核进度"></navigation-bar>
+
+  <scroll-view class="record-scroll" scroll-y>
+    <view class="container-page">
+      <view class="card" wx:if="{{loading}}">
+        <text class="empty-tip">正在加载校园点滴进度...</text>
+      </view>
+
+      <block wx:if="{{!loading && list.length > 0}}">
+        <view class="card record-item" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" bindtap="onOpenDetail">
+          <view class="record-head">
+            <text class="record-time">{{item.submittedAt}}</text>
+            <text class="tag {{item.status === '已发布' ? 'tag-success' : item.status === '驳回' ? 'tag-danger' : ''}}">{{item.status}}</text>
+          </view>
+          <text class="record-main">{{item.title}}</text>
+          <text class="record-sub">{{item.reviewComment || '暂无审核意见'}}</text>
+          <text class="record-link">查看投稿详情</text>
+        </view>
+      </block>
+
+      <view class="card" wx:if="{{!loading && list.length === 0}}">
+        <text class="empty-tip">暂无校园点滴投稿记录。</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view wx:if="{{showDetailModal}}" class="modal-mask" bindtap="closeDetailModal"></view>
+  <view wx:if="{{showDetailModal}}" class="modal-panel">
+    <view class="modal-header">
+      <text class="modal-title">投稿详情</text>
+      <text class="modal-close" bindtap="closeDetailModal">关闭</text>
+    </view>
+    <view class="modal-scroll-wrap">
+      <scroll-view class="modal-scroll" scroll-y enable-flex>
+        <view class="detail-card" wx:if="{{activeDetail}}">
+          <text class="detail-title">{{activeDetail.title}}</text>
+          <text class="detail-meta">审核状态：{{activeDetail.status}}</text>
+          <text class="detail-meta">提交时间：{{activeDetail.submittedAt || '-'}}</text>
+          <text wx:if="{{activeDetail.reviewedAt}}" class="detail-meta">审核时间：{{activeDetail.reviewedAt}}</text>
+          <text wx:if="{{activeDetail.publishedAt}}" class="detail-meta">发布时间：{{activeDetail.publishedAt}}</text>
+          <text wx:if="{{activeDetail.publisher}}" class="detail-meta">发布人：{{activeDetail.publisher}}</text>
+          <text wx:if="{{activeDetail.caption}}" class="detail-content">内容：{{activeDetail.caption}}</text>
+          <text wx:if="{{activeDetail.reviewComment}}" class="detail-content">审核意见：{{activeDetail.reviewComment}}</text>
+          <image
+            wx:if="{{activeDetail.image}}"
+            class="detail-image"
+            src="{{activeDetail.image}}"
+            mode="widthFix"
+            data-image="{{activeDetail.image}}"
+            data-images="{{activeDetail.imageList}}"
+            bindtap="onPreviewImage"
+          ></image>
+          <text wx:if="{{activeDetail.imageList.length > 1}}" class="detail-image-count">共{{activeDetail.imageList.length}}张图片，可点击预览</text>
+          <view wx:if="{{activeDetail.imageList.length > 1}}" class="detail-gallery">
+            <image
+              wx:for="{{activeDetail.imageList}}"
+              wx:key="*this"
+              class="detail-gallery-image"
+              src="{{item}}"
+              mode="aspectFill"
+              data-image="{{item}}"
+              data-images="{{activeDetail.imageList}}"
+              bindtap="onPreviewImage"
+            ></image>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

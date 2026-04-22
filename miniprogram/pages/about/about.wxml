@@ -1,0 +1,16 @@
+<view class="simple-page">
+  <navigation-bar back="{{true}}" background="#F5F7FA" color="#2D3A4B" title="关于易暖医途"></navigation-bar>
+
+  <scroll-view class="simple-scroll" scroll-y>
+    <view class="container-page">
+      <view class="card">
+        <view class="section-title">产品介绍</view>
+        <text class="intro-text">{{intro}}</text>
+      </view>
+      <view class="card">
+        <view class="section-title">当前能力</view>
+        <text class="list-item" wx:for="{{features}}" wx:key="*this">• {{item}}</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

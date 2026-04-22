@@ -1,0 +1,267 @@
+<view class="mental-page">
+  <navigation-bar back="{{false}}" background="#F5F7FA" color="#2D3A4B" title="关怀中心"></navigation-bar>
+
+  <scroll-view class="mental-scroll" scroll-y>
+    <view class="container-page">
+      <view class="card warm-card">
+        <text class="warm-kicker">每日暖心语</text>
+        <text class="warm-quote">{{dailyQuote.text}}</text>
+        <view class="warm-actions">
+          <button class="inline-btn warm-btn" bindtap="onRefreshQuote">换一句</button>
+          <button class="secondary-btn warm-btn" bindtap="openMomentModal">校园点滴</button>
+        </view>
+      </view>
+
+      <view class="card">
+        <view class="section-title">关怀主题</view>
+        <view class="guide-grid">
+          <view class="guide-card" wx:for="{{guideCards}}" wx:key="id" data-id="{{item.id}}" bindtap="onOpenGuideDetail">
+            <view class="guide-icon">{{item.icon}}</view>
+            <text class="guide-title">{{item.title}}</text>
+            <text class="guide-summary">{{item.summary}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="card">
+        <view class="section-title">今日情绪自评</view>
+        <text class="scale-intro">先选一个最贴近你当前状态的词，AI会给你更贴合的关怀建议。</text>
+        <view class="mood-chip-row">
+          <view class="mood-chip" wx:for="{{quickMoodOptions}}" wx:key="*this" data-mood="{{item}}" bindtap="onQuickMoodTap">{{item}}</view>
+        </view>
+      </view>
+
+      <view class="card">
+        <view class="section-title">心理自评（SDS / SAS）</view>
+        <text class="scale-intro">支持抑郁与焦虑自评，使用弹窗填写，提交后会在此处展示结果摘要。</text>
+        <view class="assessment-actions">
+          <button class="primary-btn action-btn" bindtap="openAssessmentModal">打开自评弹窗</button>
+          <button class="inline-btn action-btn" bindtap="onResetAssessment">清空当前量表</button>
+        </view>
+      </view>
+
+      <view class="card" wx:if="{{assessmentResult}}">
+        <view class="section-title">评估结果</view>
+        <view class="result-level {{assessmentResult.levelTone}}">{{assessmentResult.levelLabel}}</view>
+        <view class="result-meta">
+          <text>{{assessmentResult.scaleName}}</text>
+          <text>原始分：{{assessmentResult.rawScore}}</text>
+          <text>标准分：{{assessmentResult.standardScore}}</text>
+          <text>严重度指数：{{assessmentResult.indexScore}}</text>
+        </view>
+        <text class="result-explain">{{assessmentResult.explain}}</text>
+        <text wx:if="{{assessmentResult.highlightText}}" class="result-highlight">{{assessmentResult.highlightText}}</text>
+      </view>
+
+      <view class="card">
+        <view class="section-title">校园帮扶渠道</view>
+        <view class="channel-item" wx:for="{{supportChannels}}" wx:key="label">
+          <text class="channel-label">{{item.label}}</text>
+          <text class="channel-value">{{item.value}}</text>
+        </view>
+        <view class="support-actions">
+          <button class="secondary-btn support-btn" bindtap="onContactCounselor">联系辅导员渠道</button>
+          <button class="secondary-btn support-btn" bindtap="onCallHotline">拨打心理热线</button>
+          <button class="secondary-btn support-btn" bindtap="openMomentSubmitModal">提交校园点滴</button>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view wx:if="{{showMomentSubmitModal}}" class="modal-mask" bindtap="closeMomentSubmitModal"></view>
+  <view wx:if="{{showMomentSubmitModal}}" class="modal-panel">
+    <view class="modal-header">
+      <text class="modal-title">提交校园点滴</text>
+      <text class="modal-close" bindtap="closeMomentSubmitModal">关闭</text>
+    </view>
+    <view class="modal-scroll-wrap">
+      <scroll-view class="modal-scroll" scroll-y enable-flex>
+        <view class="form-item">
+          <text class="form-label">标题</text>
+          <input class="form-input" data-field="title" placeholder="例如：今天的一件小确幸" value="{{momentForm.title}}" bindinput="onMomentInput" />
+        </view>
+        <view class="form-item">
+          <text class="form-label">内容</text>
+          <textarea class="form-textarea" data-field="caption" placeholder="描述你想分享的校园点滴（老师审核后发布）" value="{{momentForm.caption}}" bindinput="onMomentInput"></textarea>
+        </view>
+        <view class="form-item">
+          <text class="form-label">校园点滴图片（最多9张）</text>
+          <view class="moment-upload-row">
+            <button class="secondary-btn upload-btn" bindtap="onChooseMomentImage">上传图片附件</button>
+            <button class="inline-btn upload-btn" bindtap="onClearMomentImage" disabled="{{momentForm.imageAttachments.length === 0}}">清空图片</button>
+          </view>
+          <text class="help-line" wx:if="{{momentForm.imageNameList.length > 0}}">已上传 {{momentForm.imageNameList.length}} 张</text>
+          <view wx:if="{{momentForm.imageNameList.length > 0}}" class="moment-upload-name-list">
+            <view class="moment-upload-chip" wx:for="{{momentForm.imageNameList}}" wx:key="*this">
+              <text class="moment-upload-chip-name">{{item}}</text>
+              <text class="moment-upload-chip-remove" data-index="{{index}}" bindtap="onClearMomentImage">移除</text>
+            </view>
+          </view>
+          <view wx:if="{{momentForm.imagePreviewList.length > 0}}" class="moment-upload-preview-grid">
+            <image
+              wx:for="{{momentForm.imagePreviewList}}"
+              wx:key="*this"
+              class="moment-upload-preview-item"
+              src="{{item}}"
+              mode="aspectFill"
+              data-image="{{item}}"
+              data-images="{{momentForm.imagePreviewList}}"
+              bindtap="onPreviewMoment"
+            ></image>
+          </view>
+        </view>
+        <button class="primary-btn support-btn" bindtap="onSubmitMoment" disabled="{{momentSubmitting}}">
+          {{momentSubmitting ? '提交中...' : '提交审核'}}
+        </button>
+      </scroll-view>
+    </view>
+  </view>
+
+  <view wx:if="{{showMomentModal}}" class="modal-mask" bindtap="closeMomentModal"></view>
+  <view wx:if="{{showMomentModal}}" class="modal-panel">
+    <view class="modal-header">
+      <text class="modal-title">校园点滴美好</text>
+      <text class="modal-close" bindtap="closeMomentModal">关闭</text>
+    </view>
+    <view class="modal-scroll-wrap">
+      <scroll-view class="modal-scroll" scroll-y enable-flex>
+        <view class="moment-item" wx:for="{{campusMoments}}" wx:key="id" data-id="{{item.id}}" bindtap="onOpenMomentDetail">
+          <image
+            class="moment-image"
+            src="{{item.image}}"
+            mode="aspectFill"
+            data-image="{{item.image}}"
+            data-images="{{item.imageList}}"
+            catchtap="onPreviewMoment"
+          ></image>
+          <view wx:if="{{item.imageList.length > 1}}" class="moment-image-count">共{{item.imageList.length}}张</view>
+          <view class="moment-body">
+            <text class="moment-title">{{item.title}}</text>
+            <text class="moment-caption">{{item.caption}}</text>
+            <text class="moment-meta">{{item.publisher}} · {{item.date}}</text>
+            <text class="moment-detail-link">查看详情 ›</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <view wx:if="{{showMomentDetailModal}}" class="modal-mask" bindtap="closeMomentDetailModal"></view>
+  <view wx:if="{{showMomentDetailModal}}" class="modal-panel">
+    <view class="modal-header">
+      <text class="modal-title">校园点滴详情</text>
+      <text class="modal-close" bindtap="closeMomentDetailModal">关闭</text>
+    </view>
+    <view class="modal-scroll-wrap">
+      <scroll-view class="modal-scroll" scroll-y enable-flex>
+        <view class="moment-detail-card" wx:if="{{activeMomentDetail}}">
+          <text class="moment-detail-title">{{activeMomentDetail.title}}</text>
+          <text class="moment-detail-meta">发布者：{{activeMomentDetail.publisher}}</text>
+          <text class="moment-detail-meta">发布时间：{{activeMomentDetail.date}}</text>
+          <text wx:if="{{activeMomentDetail.caption}}" class="moment-detail-content">内容：{{activeMomentDetail.caption}}</text>
+          <image
+            wx:if="{{activeMomentDetail.image}}"
+            class="moment-detail-image"
+            src="{{activeMomentDetail.image}}"
+            mode="widthFix"
+            data-image="{{activeMomentDetail.image}}"
+            data-images="{{activeMomentDetail.imageList}}"
+            bindtap="onPreviewMoment"
+          ></image>
+          <text wx:if="{{activeMomentDetail.imageList.length > 1}}" class="moment-detail-image-count">共{{activeMomentDetail.imageList.length}}张图片，可点击预览</text>
+          <view wx:if="{{activeMomentDetail.imageList.length > 1}}" class="moment-detail-gallery">
+            <image
+              wx:for="{{activeMomentDetail.imageList}}"
+              wx:key="*this"
+              class="moment-detail-gallery-image"
+              src="{{item}}"
+              mode="aspectFill"
+              data-image="{{item}}"
+              data-images="{{activeMomentDetail.imageList}}"
+              bindtap="onPreviewMoment"
+            ></image>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <view wx:if="{{showAssessmentModal}}" class="modal-mask" bindtap="closeAssessmentModal"></view>
+  <view wx:if="{{showAssessmentModal}}" class="modal-panel">
+    <view class="modal-header">
+      <text class="modal-title">心理自评（SDS / SAS）</text>
+      <text class="modal-close" bindtap="closeAssessmentModal">关闭</text>
+    </view>
+    <view class="modal-scroll-wrap">
+      <scroll-view class="modal-scroll" scroll-y enable-flex>
+        <view class="scale-switch">
+          <view class="scale-tab {{activeScaleKey === 'SDS' ? 'active' : ''}}" data-key="SDS" bindtap="onSwitchScale">SDS 抑郁自评</view>
+          <view class="scale-tab {{activeScaleKey === 'SAS' ? 'active' : ''}}" data-key="SAS" bindtap="onSwitchScale">SAS 焦虑自评</view>
+        </view>
+        <text class="scale-intro">{{activeScaleIntro}}</text>
+
+        <view class="assessment-item" wx:for="{{activeQuestions}}" wx:key="id" wx:for-item="question" wx:for-index="questionIndex">
+          <text class="assessment-question">{{question.no}}. {{question.text}}</text>
+          <radio-group class="option-group" data-scale="{{activeScaleKey}}" data-index="{{questionIndex}}" bindchange="onPickAssessmentOption">
+            <label class="option-item" wx:for="{{activeOptionLabels}}" wx:key="*this" wx:for-item="optionLabel" wx:for-index="optionIndex">
+              <radio class="option-radio" value="{{optionIndex}}" checked="{{question.selectedIndex === optionIndex}}" />
+              <text class="option-text">{{optionLabel}}</text>
+            </label>
+          </radio-group>
+          <text wx:if="{{question.selectedLabel}}" class="selected-tip">已选：{{question.selectedLabel}}</text>
+        </view>
+
+        <view class="assessment-actions">
+          <button class="inline-btn action-btn" bindtap="onResetAssessment">重置</button>
+          <button class="primary-btn action-btn" bindtap="onSubmitAssessment">提交评估</button>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <view wx:if="{{showGuideModal}}" class="modal-mask" bindtap="closeGuideModal"></view>
+  <view wx:if="{{showGuideModal}}" class="modal-panel">
+    <view class="modal-header">
+      <text class="modal-title">{{activeGuideTitle}}</text>
+      <text class="modal-close" bindtap="closeGuideModal">关闭</text>
+    </view>
+    <view class="modal-scroll-wrap">
+      <scroll-view class="modal-scroll" scroll-y enable-flex>
+        <block wx:if="{{activeGuideId === 'stress'}}">
+          <view class="stress-item" wx:for="{{stressCategories}}" wx:key="id">
+            <view class="stress-head">
+              <text class="stress-icon">{{item.icon}}</text>
+              <text class="stress-title">{{item.title}}</text>
+            </view>
+            <text class="stress-tip" wx:for="{{item.tips}}" wx:key="*this">- {{item}}</text>
+          </view>
+        </block>
+
+        <block wx:if="{{activeGuideId === 'support'}}">
+          <view class="support-guide">
+            <text class="guide-text">遇到突发困难时，先稳定情绪并及时向辅导员或可信赖老师说明情况，学校会协同提供支持。</text>
+            <text class="guide-text">如果你愿意，我们可以帮你快速连接到辅导员和心理咨询渠道。</text>
+          </view>
+          <view class="channel-item" wx:for="{{supportChannels}}" wx:key="label">
+            <text class="channel-label">{{item.label}}</text>
+            <text class="channel-value">{{item.value}}</text>
+          </view>
+          <view class="support-actions">
+            <button class="secondary-btn support-btn" bindtap="onContactCounselor">复制辅导员渠道</button>
+          </view>
+        </block>
+
+        <block wx:if="{{activeGuideId === 'science'}}">
+          <view class="science-item" wx:for="{{scienceResources}}" wx:key="id">
+            <text class="science-title">{{item.title}}</text>
+            <text class="science-source">来源：{{item.source}}</text>
+            <text class="science-link">{{item.url}}</text>
+            <button class="inline-btn science-btn" data-url="{{item.url}}" bindtap="onCopyScienceLink">复制链接</button>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+
+  <ai-chat id="emotionAiChat" scene="emotion" entry-only="{{true}}" bindinvite="openTreeholeModal"></ai-chat>
+</view>

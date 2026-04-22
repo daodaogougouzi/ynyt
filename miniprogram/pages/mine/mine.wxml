@@ -1,0 +1,172 @@
+<view class="mine-page">
+  <navigation-bar back="{{false}}" background="#F5F7FA" color="#2D3A4B" title="个人中心"></navigation-bar>
+
+  <scroll-view class="mine-scroll" scroll-y>
+    <view class="container-page">
+      <view class="card user-card" wx:if="{{hasSession && student}}">
+        <view class="user-avatar">校</view>
+        <view class="user-info">
+          <text class="user-title">{{student.name}}</text>
+          <text class="user-subtitle">{{student.studentNo}}</text>
+          <view class="college-inline-row">
+            <text class="college-inline-label">学院绑定</text>
+            <picker mode="selector" range="{{colleges}}" range-key="name" value="{{collegeIndex}}" bindchange="onCollegeChange">
+              <view class="college-inline-value">{{boundCollegeName}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+      <view class="card" wx:if="{{!hasSession}}">
+        <view class="section-title">学生登录</view>
+        <view class="form-group">
+          <text class="form-label">学号</text>
+          <input class="form-input" data-field="studentNo" placeholder="请输入学号" value="{{loginForm.studentNo}}" bindinput="onLoginInput" />
+        </view>
+        <view class="form-group no-margin">
+          <text class="form-label">姓名</text>
+          <input class="form-input" data-field="name" placeholder="请输入姓名" value="{{loginForm.name}}" bindinput="onLoginInput" />
+        </view>
+        <button class="primary-btn login-btn" bindtap="onLogin" disabled="{{loginSubmitting}}">
+          {{loginSubmitting ? '登录中...' : '登录学生账号'}}
+        </button>
+        <text class="help-line">已内置多名 mock 学生，可使用姓名 + 学号登录查看不同认定与奖助状态。</text>
+      </view>
+
+      <block wx:if="{{hasSession && student}}">
+        <view class="card">
+          <view class="section-title">当前认定状态</view>
+          <view class="status-row">
+            <text class="tag">{{student.currentRecognitionStatus}}</text>
+            <text class="tag {{student.currentRecognitionLevel === '未认定' ? '' : 'tag-success'}}">{{student.currentRecognitionLevel}}</text>
+          </view>
+          <text class="help-line">认定等级：{{student.currentRecognitionLevel}}</text>
+          <text class="help-line" wx:if="{{portrait}}">认定分数：{{portrait.currentRecognitionScore}} 分 · 最近更新：{{portraitSummary.latestRecognitionTimeText}}</text>
+          <text wx:if="{{student.confirmedRecognitionLabels.length > 0}}" class="help-line">确认类型：{{student.confirmedRecognitionLabels.join('、')}}</text>
+        </view>
+
+        <view class="card growth-card" wx:if="{{growthTree}}" bindtap="onOpenGrowthTreeDetail">
+          <view class="section-title-row">
+            <view class="section-title">成长树进度</view>
+            <text class="growth-detail-link">查看详情</text>
+          </view>
+          <view class="status-row">
+            <text class="tag tag-success">{{growthTree.stage.label}}</text>
+            <text class="tag">积分 {{growthTree.points}}</text>
+            <text class="tag">花朵 {{growthTree.flowers}}</text>
+            <text class="tag">果实 {{growthTree.fruits}}</text>
+          </view>
+          <text class="help-line">{{growthTree.stage.desc}}</text>
+          <text class="help-line">{{growthTree.nextStageHint}}</text>
+        </view>
+
+        <view class="card" wx:if="{{deadlineReminderList.length > 0}}">
+          <view class="section-title">奖助截止提醒</view>
+          <view wx:if="{{nearestDeadlineReminder}}" class="deadline-highlight">
+            <text class="deadline-highlight-title">最近截止：{{nearestDeadlineReminder.scholarshipName}}</text>
+            <text class="deadline-highlight-meta">剩余约 {{nearestDeadlineReminder.hoursLeft}} 小时 · {{nearestDeadlineReminder.deadline}}</text>
+          </view>
+          <view class="deadline-item" wx:for="{{deadlineReminderList}}" wx:key="id">
+            <text class="deadline-name">{{item.scholarshipName}}</text>
+            <text class="deadline-meta">截止：{{item.deadline}}</text>
+            <text class="deadline-meta">剩余约 {{item.hoursLeft}} 小时 · 生成于 {{item.createdAtText}}</text>
+          </view>
+        </view>
+
+        <view class="card">
+          <view class="section-title">心理自评历史</view>
+          <view wx:if="{{mentalHistoryList.length === 0}}" class="help-line">暂无心理自评记录，可前往关怀中心完成 SDS/SAS 自评。</view>
+          <view wx:for="{{mentalHistoryList}}" wx:key="id" class="mental-history-item">
+            <view class="mental-history-head">
+              <text class="mental-history-scale">{{item.scaleName}}</text>
+              <text class="tag {{item.levelTone === 'tone-ok' ? 'tag-success' : 'tag-danger'}}">{{item.levelLabel}}</text>
+            </view>
+            <text class="mental-history-meta">标准分：{{item.standardScore}} · {{item.createdAtText}}</text>
+            <text wx:if="{{item.highlightText}}" class="mental-history-highlight">{{item.highlightText}}</text>
+          </view>
+        </view>
+
+        <view class="card">
+          <view class="section-title">我的功能列表</view>
+          <view class="menu-item" wx:for="{{menuItems}}" wx:key="url" data-url="{{item.url}}" bindtap="onOpenMenu">
+            <text>{{item.label}}</text>
+            <text class="menu-arrow">›</text>
+          </view>
+        </view>
+
+        <button class="danger-btn" bindtap="onClearData">退出 / 清空本地缓存</button>
+      </block>
+    </view>
+  </scroll-view>
+
+  <view wx:if="{{showGrowthTreeDetail}}" class="growth-modal-mask" bindtap="closeGrowthTreeDetail"></view>
+  <view wx:if="{{showGrowthTreeDetail}}" class="growth-modal-panel">
+    <view class="growth-modal-header">
+      <text class="growth-modal-title">成长树详情</text>
+      <text class="growth-modal-close" bindtap="closeGrowthTreeDetail">关闭</text>
+    </view>
+    <view class="growth-modal-scroll-wrap">
+      <scroll-view class="growth-modal-scroll" scroll-y enable-flex>
+        <view class="growth-tree-stage-row">
+          <text class="tag tag-success">{{growthTree.stage.label}}</text>
+          <text class="tag">积分 {{growthTree.points}}</text>
+          <text class="tag">花朵 {{growthTree.flowers}}</text>
+          <text class="tag">果实 {{growthTree.fruits}}</text>
+        </view>
+        <text class="growth-tree-hint">{{growthTree.nextStageHint}}</text>
+
+        <view class="growth-tree-canvas">
+          <image class="growth-tree-illustration" src="{{growthTreeImage}}" mode="aspectFill"></image>
+
+          <view
+            class="growth-node growth-node-{{item.nodeKind}} growth-node-v{{item.nodeVariant}} {{selectedGrowthAchievement && selectedGrowthAchievement.id === item.id ? 'growth-node-active' : ''}}"
+            wx:for="{{growthNodeList}}"
+            wx:key="id"
+            data-id="{{item.id}}"
+            bindtap="onTapGrowthFruit"
+            style="left: {{item.leftPercent}}%; top: {{item.topPercent}}%;"
+          >
+            <text class="growth-node-core">{{item.nodeCode}}</text>
+          </view>
+        </view>
+
+        <view class="growth-detail-card" wx:if="{{selectedGrowthAchievement}}">
+          <view class="growth-detail-head">
+            <text class="growth-detail-title">{{selectedGrowthAchievement.title}}</text>
+            <view class="growth-detail-tags">
+              <text class="growth-detail-node growth-detail-node-{{selectedGrowthAchievement.nodeKind}}">{{selectedGrowthAchievement.nodeCode}}</text>
+              <text class="tag {{selectedGrowthAchievement.tone === 'scholarship' ? 'tag-success' : ''}}">{{selectedGrowthAchievement.toneText}}</text>
+            </view>
+          </view>
+          <text class="growth-detail-meta">{{selectedGrowthAchievement.pointsText}}</text>
+          <text class="growth-detail-meta">达成时间：{{selectedGrowthAchievement.createdAtText}}</text>
+          <text class="growth-detail-desc">{{selectedGrowthAchievement.description}}</text>
+          <text class="growth-detail-link" bindtap="onOpenGrowthAchievementSource">查看来源记录</text>
+        </view>
+
+        <view class="growth-timeline-card" wx:if="{{growthAchievementList.length > 0}}">
+          <view class="section-title">成长成就时间线</view>
+          <view
+            class="growth-timeline-item"
+            wx:for="{{growthAchievementList}}"
+            wx:key="id"
+            data-id="{{item.id}}"
+            bindtap="onTapGrowthFruit"
+          >
+            <view class="growth-timeline-head">
+              <view class="growth-timeline-node-row">
+                <text class="growth-timeline-node growth-timeline-node-{{item.nodeKind}}">{{item.nodeCode}}</text>
+                <text class="growth-timeline-title">{{item.title}}</text>
+              </view>
+              <text class="growth-timeline-time">{{item.createdAtText}}</text>
+            </view>
+            <text class="growth-timeline-meta">{{item.pointsText}} · {{item.nodeKindText}} · {{item.toneText}}</text>
+          </view>
+        </view>
+        <view class="growth-timeline-card" wx:else>
+          <text class="help-line">暂未记录成长成就，去关怀中心记录校园点滴或完成奖助申请吧。</text>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

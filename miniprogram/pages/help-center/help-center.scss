@@ -1,0 +1,16 @@
+.simple-page {
+  min-height: 100vh;
+  background: #f5f7fa;
+}
+
+.simple-scroll {
+  height: calc(100vh - 88rpx);
+}
+
+.list-item {
+  display: block;
+  color: #4b5b71;
+  font-size: 24rpx;
+  line-height: 1.8;
+  margin-bottom: 10rpx;
+}

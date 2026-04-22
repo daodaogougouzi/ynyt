@@ -1,0 +1,27 @@
+<view class="record-page">
+  <navigation-bar back="{{true}}" background="#F5F7FA" color="#2D3A4B" title="我的奖助申请"></navigation-bar>
+
+  <scroll-view class="record-scroll" scroll-y>
+    <view class="container-page">
+      <view class="card" wx:if="{{loading}}">
+        <text class="empty-tip">正在加载奖助申请...</text>
+      </view>
+
+      <block wx:if="{{!loading && list.length > 0}}">
+        <view class="card record-item" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" bindtap="onOpenDetail">
+          <view class="record-head">
+            <text class="record-time">{{item.submittedAt}}</text>
+            <text class="tag {{item.status === '审核通过' ? 'tag-success' : item.status === '驳回' ? 'tag-danger' : ''}}">{{item.status}}</text>
+          </view>
+          <text class="record-main">{{item.scholarshipName}}</text>
+          <text class="record-sub">{{item.reviewComment || '暂无审核意见'}}</text>
+          <text class="record-link">查看申请明细</text>
+        </view>
+      </block>
+
+      <view class="card" wx:if="{{!loading && list.length === 0}}">
+        <text class="empty-tip">暂无奖助申请记录。</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,36 @@
+{
+  "description": "项目配置文件",
+  "projectname": "易暖医途",
+  "appid": "wx192f07dc7e9440f4",
+  "compileType": "miniprogram",
+  "miniprogramRoot": "miniprogram/",
+  "srcMiniprogramRoot": "miniprogram/",
+  "libVersion": "2.32.3",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "coverView": false,
+    "lazyloadPlaceholderEnable": false,
+    "skylineRenderEnable": true,
+    "preloadBackgroundData": false,
+    "autoAudits": false,
+    "useApiHook": true,
+    "showShadowRootInWxmlPanel": false,
+    "useStaticServer": false,
+    "useLanDebug": false,
+    "showES6CompileOption": false,
+    "compileHotReLoad": true,
+    "bigPackageSizeSupport": false,
+    "checkInvalidKey": true,
+    "ignoreDevUnusedFiles": true,
+    "useCompilerPlugins": [
+      "typescript",
+      "sass"
+    ],
+    "enhance": true,
+    "es6": true
+  }
+}

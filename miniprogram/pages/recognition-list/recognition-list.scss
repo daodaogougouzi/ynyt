@@ -1,0 +1,55 @@
+.record-page {
+  min-height: 100vh;
+  background: #f5f7fa;
+}
+
+.record-scroll {
+  height: calc(100vh - 88rpx);
+}
+
+.record-item {
+  border: 1rpx solid #e8edf4;
+}
+
+.record-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12rpx;
+  margin-bottom: 12rpx;
+}
+
+.record-time {
+  color: #8a94a6;
+  font-size: 22rpx;
+}
+
+.record-main,
+.record-sub,
+.record-link {
+  display: block;
+}
+
+.record-main {
+  color: #2d3a4b;
+  font-size: 27rpx;
+  font-weight: 600;
+  margin-bottom: 8rpx;
+}
+
+.record-sub {
+  color: #5d6b7f;
+  font-size: 24rpx;
+  line-height: 1.6;
+}
+
+.record-link {
+  margin-top: 12rpx;
+  color: #4a90e2;
+  font-size: 24rpx;
+}
+
+.empty-tip {
+  color: #8a94a6;
+  font-size: 24rpx;
+}

@@ -1,0 +1,555 @@
+[
+  {
+    "id": "scholarship-1775971883515-4653",
+    "studentId": "student-005",
+    "scholarshipId": "national-grant",
+    "scholarshipName": "国家助学金",
+    "scholarshipType": "助学金",
+    "academicYear": "2025-2026",
+    "recognitionSnapshot": {
+      "level": "一般困难",
+      "score": 35,
+      "confirmedRecognitionRuleIds": [
+        "R20"
+      ],
+      "confirmedRecognitionLabels": [
+        "父母一方抚养"
+      ]
+    },
+    "eligibilityResult": {
+      "eligible": true,
+      "reason": "当前按三档资助分档发放，预计金额为2500元/人/学年。",
+      "grantTier": {
+        "label": "三档资助",
+        "amount": "2500元/人/学年"
+      }
+    },
+    "applySummary": {
+      "personalIntro": "平均绩点3.1，参与过科技馆志愿服务",
+      "familySituation": "父母一方抚养",
+      "usagePlan": "基本生活支出"
+    },
+    "materials": [
+      "个人简介：平均绩点3.1，参与过科技馆志愿服务",
+      "家庭情况：父母一方抚养",
+      "使用计划：基本生活支出"
+    ],
+    "attachments": [
+      {
+        "id": "sch-attachment-1775971655074-230",
+        "name": "提交模板.zip",
+        "type": "file",
+        "size": 7691538,
+        "sizeLabel": "7.3MB",
+        "filePath": "/uploads/scholarship-applications/attachments/7a8ab6bbb0cd21ae-file.zip",
+        "fileUrl": "https://ynyt.nat100.top/uploads/scholarship-applications/attachments/7a8ab6bbb0cd21ae-file.zip"
+      }
+    ],
+    "status": "待审核",
+    "comment": "个人简介：平均绩点3.1，参与过科技馆志愿服务\n家庭���况：父母一方抚养\n使用计划：基本生活支出",
+    "submittedAt": "2026-04-12T05:31:23.515Z",
+    "reviewedAt": "",
+    "reviewComment": ""
+  },
+  {
+    "id": "scholarship-1775910327902-3686",
+    "studentId": "student-005",
+    "scholarshipId": "national-encourage-scholarship",
+    "scholarshipName": "国家励志奖学金",
+    "scholarshipType": "奖学金",
+    "academicYear": "2025-2026",
+    "recognitionSnapshot": {
+      "level": "一般困难",
+      "score": 35,
+      "confirmedRecognitionRuleIds": [
+        "R20"
+      ],
+      "confirmedRecognitionLabels": [
+        "父母一方抚养"
+      ]
+    },
+    "eligibilityResult": {
+      "eligible": true,
+      "reason": "面向品学兼优且家庭经济困难的二年级及以上学生。",
+      "grantTier": null
+    },
+    "applySummary": {
+      "personalIntro": "我在用易暖医途整理奖助申请，这个项目可以重点关注：药苑校友基金奖学金\n资助标准：2000元/人/年\n截止时间：按药学院通知为准\n推荐理由：面向药学院优秀考研录取学生。\n推荐码：3Q2D6P",
+      "familySituation": "我在用易暖医途整理奖助申请，这个项目可以重点关注：药苑校友基金奖学金\n资助标准：2000元/人/年\n截止时间：按药学院通知为准\n推荐理由：面向药学院优秀考研录取学生。\n推荐码：3Q2D6P",
+      "usagePlan": "我在用易暖医途整理奖助申请，这个项目可以重点关注：药苑校友基金奖学金\n资助标准：2000元/人/年\n截止时间：按药学院通知为准\n推荐理由：面向药学院优秀考研录取学生。\n推荐码：3Q2D6P"
+    },
+    "materials": [
+      "个人简介：我在用易暖医途整理奖助申请，这个项目可以重点关注：药苑校友基金奖学金\n资助标准：2000元/人/年\n截止时间：按药学院通知为准\n推荐理由：面向药学院优秀考研录取学生。\n推荐码：3Q2D6P",
+      "家庭情况：我在用易暖医途整理奖助申请，这个项目可以重点关注：药苑校友基金奖学金\n资助标准：2000元/人/年\n截止时间：按药学院通知为准\n推荐理由：面向药学院优秀考研录取学生。\n推荐码：3Q2D6P",
+      "使用计划：我在用易暖医途整理奖助申请，这个项目可以重点关注：药苑校友基金奖学金\n资助标准：2000元/人/年\n截止时间：按药学院通知为准\n推荐理由：面向药学院优秀考研录取学生。\n推荐码：3Q2D6P"
+    ],
+    "attachments": [
+      {
+        "id": "sch-attachment-1775910323848-713",
+        "name": "本科学生资助政策简介折页-格式转换.docx",
+        "type": "file",
+        "size": 715407,
+        "sizeLabel": "699KB",
+        "filePath": "/uploads/scholarship-applications/attachments/052af937b1efcc31-file.docx",
+        "fileUrl": "https://ynyt.nat100.top/uploads/scholarship-applications/attachments/052af937b1efcc31-file.docx"
+      }
+    ],
+    "status": "待审核",
+    "comment": "个人简介：我在用易暖医途整理奖助申请，这个项目可以重点关注：药苑校友基金奖学金\n资助标准：2000元/人/年\n截止时间：按药学院通知为准\n推荐理由：面向药学院优秀考研录取学生。\n推荐码：3Q2D6P\n家庭情况：我在用易暖医途整理奖助申请，这个项目可以重点关注：药苑校友基金奖学金\n资助标准：2000元/人/年\n截止时间：按药学院通知为准\n推荐理由：面向药学院优秀考研录取学生。\n推荐码：3Q2D6P\n使用计划：我在用易暖医途整理奖助申请，这个项目可以重点关注：药苑校友基金奖学��\n资助标准：2000元/人/年\n截止时间：按药学院通知为准\n推荐理由：面向药学院优秀考研录取学生。\n推荐码：3Q2D6P",
+    "submittedAt": "2026-04-11T12:25:27.902Z",
+    "reviewedAt": "",
+    "reviewComment": ""
+  },
+  {
+    "id": "scholarship-1775909712009-6921",
+    "studentId": "student-005",
+    "scholarshipId": "ph-alumni-scholarship",
+    "scholarshipName": "药苑校友基金奖学金",
+    "scholarshipType": "奖学金",
+    "academicYear": "2025-2026",
+    "recognitionSnapshot": {
+      "level": "一般困难",
+      "score": 35,
+      "confirmedRecognitionRuleIds": [
+        "R20"
+      ],
+      "confirmedRecognitionLabels": [
+        "父母一方抚养"
+      ]
+    },
+    "eligibilityResult": {
+      "eligible": true,
+      "reason": "面向药学院优秀考研录取学生。",
+      "grantTier": null
+    },
+    "applySummary": {
+      "personalIntro": "平均绩点3.1，专业成绩在专业前40%，做过科技馆志愿服务",
+      "familySituation": "父母一方抚养",
+      "usagePlan": "基本生活安排"
+    },
+    "materials": [
+      "个人简介：平均绩点3.1，专业成绩在专业前40%，做过科技馆志愿服务",
+      "家庭情况：父母一方抚养",
+      "使用计划：基本生活安排"
+    ],
+    "attachments": [
+      {
+        "id": "sch-attachment-1775909707499-693",
+        "name": "本科学生资助政策简介折页-格式转换.docx",
+        "type": "file",
+        "size": 715407,
+        "sizeLabel": "699KB",
+        "filePath": "/uploads/scholarship-applications/attachments/052af937b1efcc31-file.docx",
+        "fileUrl": "https://ynyt.nat100.top/uploads/scholarship-applications/attachments/052af937b1efcc31-file.docx"
+      }
+    ],
+    "status": "待审核",
+    "comment": "个人简介：平均绩点3.1，专��成绩在专业前40%，做过科技馆志愿服务\n家庭情况：父母一方抚养\n使用计划：基本生活安排",
+    "submittedAt": "2026-04-11T12:15:12.009Z",
+    "reviewedAt": "",
+    "reviewComment": ""
+  },
+  {
+    "id": "scholarship-1775723127155-8093",
+    "studentId": "student-006",
+    "scholarshipId": "national-grant",
+    "scholarshipName": "国家助学金",
+    "scholarshipType": "助学金",
+    "academicYear": "2025-2026",
+    "recognitionSnapshot": {
+      "level": "一般困难",
+      "tag": "三类贫困生",
+      "score": 35,
+      "confirmedRecognitionRuleIds": [
+        "R20"
+      ],
+      "confirmedRecognitionLabels": [
+        "父母一方抚养"
+      ]
+    },
+    "eligibilityResult": {
+      "eligible": true,
+      "reason": "当前按三类贫困生分档发放，预计金额为2500元/人/学年。",
+      "grantTier": {
+        "label": "三类贫困生",
+        "amount": "2500元/人/学年"
+      }
+    },
+    "applySummary": {
+      "personalIntro": "第二个项目申请",
+      "familySituation": "家庭情况补充",
+      "usagePlan": "用于学习和生活"
+    },
+    "materials": [
+      "个人简介：第二个项目申请",
+      "家庭情况：家庭情况补充",
+      "使用计划：用于学习和生活"
+    ],
+    "attachments": [
+      {
+        "id": "test-a2",
+        "name": "第二份材料.pdf",
+        "type": "application/pdf",
+        "size": 24,
+        "sizeLabel": "24B",
+        "filePath": "/uploads/scholarship-applications/attachments/565bc42d1c4290e2-file.pdf",
+        "fileUrl": "https://ynyt.nat100.top/uploads/scholarship-applications/attachments/565bc42d1c4290e2-file.pdf"
+      }
+    ],
+    "status": "审核通过",
+    "comment": "第二个项目申请",
+    "submittedAt": "2026-04-09T08:25:27.155Z",
+    "reviewedAt": "2026-04-09T08:28:00.006Z",
+    "reviewComment": "材料完整，予以通过"
+  },
+  {
+    "id": "scholarship-1775722700380-6082",
+    "studentId": "student-006",
+    "scholarshipId": "national-scholarship",
+    "scholarshipName": "国家奖学金",
+    "scholarshipType": "奖学金",
+    "academicYear": "2025-2026",
+    "recognitionSnapshot": {
+      "level": "一般困难",
+      "tag": "三类贫困生",
+      "score": 35,
+      "confirmedRecognitionRuleIds": [
+        "R20"
+      ],
+      "confirmedRecognitionLabels": [
+        "父母一方抚养"
+      ]
+    },
+    "eligibilityResult": {
+      "eligible": true,
+      "reason": "面向学习成绩和综合表现特别突出的二年级及以上学生。",
+      "grantTier": null
+    },
+    "materials": [],
+    "status": "待审核",
+    "comment": "",
+    "submittedAt": "2026-04-09T08:18:20.380Z",
+    "reviewedAt": "",
+    "reviewComment": "",
+    "applySummary": {
+      "personalIntro": "",
+      "familySituation": "",
+      "usagePlan": ""
+    },
+    "attachments": []
+  },
+  {
+    "id": "scholarship-1775720182828-435",
+    "studentId": "student-009",
+    "scholarshipId": "sc-guohua-sports",
+    "scholarshipName": "国华体育奖学金",
+    "scholarshipType": "奖学金",
+    "academicYear": "2025-2026",
+    "recognitionSnapshot": {
+      "level": "未认定",
+      "tag": "未认定",
+      "score": 0,
+      "confirmedRecognitionRuleIds": [],
+      "confirmedRecognitionLabels": []
+    },
+    "eligibilityResult": {
+      "eligible": true,
+      "reason": "面向在校级及以上正规综合性官方体育赛事中取得优异成绩的学生。",
+      "grantTier": null
+    },
+    "materials": [],
+    "status": "待审核",
+    "comment": "来自小程序奖助详情页",
+    "submittedAt": "2026-04-09T07:36:22.828Z",
+    "reviewedAt": "",
+    "reviewComment": "",
+    "applySummary": {
+      "personalIntro": "",
+      "familySituation": "",
+      "usagePlan": ""
+    },
+    "attachments": []
+  },
+  {
+    "id": "scholarship-1775646335717-1046",
+    "studentId": "student-008",
+    "scholarshipId": "national-grant",
+    "scholarshipName": "国家助学金",
+    "scholarshipType": "助学金",
+    "academicYear": "2025-2026",
+    "recognitionSnapshot": {
+      "level": "一般困难",
+      "tag": "三类贫困生",
+      "score": 35,
+      "confirmedRecognitionRuleIds": [
+        "R20"
+      ],
+      "confirmedRecognitionLabels": [
+        "父母一方抚养"
+      ]
+    },
+    "eligibilityResult": {
+      "eligible": true,
+      "reason": "当前按三类贫困生分档发放，预计金额为2500元/人/学年。",
+      "grantTier": {
+        "label": "三类贫困生",
+        "amount": "2500元/人/学年"
+      }
+    },
+    "materials": [
+      "recognition result screenshot"
+    ],
+    "status": "审核通过",
+    "comment": "grant apply smoke3101-1775646335649",
+    "submittedAt": "2026-04-08T11:05:35.717Z",
+    "reviewedAt": "2026-04-08T11:05:35.726Z",
+    "reviewComment": "grant pass smoke3101-1775646335649",
+    "applySummary": {
+      "personalIntro": "",
+      "familySituation": "",
+      "usagePlan": ""
+    },
+    "attachments": []
+  },
+  {
+    "id": "scholarship-1775645205939-1336",
+    "studentId": "student-007",
+    "scholarshipId": "national-grant",
+    "scholarshipName": "国家助学金",
+    "scholarshipType": "助学金",
+    "academicYear": "2025-2026",
+    "recognitionSnapshot": {
+      "level": "一般困难",
+      "tag": "三类贫困生",
+      "score": 35,
+      "confirmedRecognitionRuleIds": [
+        "R20"
+      ],
+      "confirmedRecognitionLabels": [
+        "父母一方抚养"
+      ]
+    },
+    "eligibilityResult": {
+      "eligible": true,
+      "reason": "当前按三类贫困生分档发放，预计金额为2500元/人/学年。",
+      "grantTier": {
+        "label": "三类贫困生",
+        "amount": "2500元/人/学年"
+      }
+    },
+    "materials": [
+      "recognition result screenshot"
+    ],
+    "status": "审核通过",
+    "comment": "grant apply smoke-1775645205833",
+    "submittedAt": "2026-04-08T10:46:45.939Z",
+    "reviewedAt": "2026-04-08T10:46:45.952Z",
+    "reviewComment": "grant pass smoke-1775645205833",
+    "applySummary": {
+      "personalIntro": "",
+      "familySituation": "",
+      "usagePlan": ""
+    },
+    "attachments": []
+  },
+  {
+    "id": "scholarship-001",
+    "studentId": "student-001",
+    "scholarshipId": "ph-red-coral-aid",
+    "scholarshipName": "红珊瑚助学金",
+    "scholarshipType": "助学金",
+    "academicYear": "2025-2026",
+    "recognitionSnapshot": {
+      "level": "特别困难",
+      "tag": "一类贫困生",
+      "score": 93,
+      "confirmedRecognitionRuleIds": [
+        "R01",
+        "R36"
+      ],
+      "confirmedRecognitionLabels": [
+        "脱贫家庭学生",
+        "2人（含本人）及以上在上学"
+      ]
+    },
+    "eligibilityResult": {
+      "eligible": true,
+      "reason": "只要求已认定为贫困生，不按贫困等级细分。",
+      "grantTier": null
+    },
+    "materials": [
+      "家庭经济情况说明"
+    ],
+    "status": "驳回",
+    "comment": "来自小程序政策详情页",
+    "submittedAt": "2026-04-07T08:33:26.828Z",
+    "reviewedAt": "2026-04-07T08:52:18.972Z",
+    "reviewComment": "附件不完整，请补充困难证明。",
+    "applySummary": {
+      "personalIntro": "",
+      "familySituation": "",
+      "usagePlan": ""
+    },
+    "attachments": []
+  },
+  {
+    "id": "scholarship-002",
+    "studentId": "student-001",
+    "scholarshipId": "ph-red-coral-scholarship",
+    "scholarshipName": "红珊瑚奖学金",
+    "scholarshipType": "奖学金",
+    "academicYear": "2025-2026",
+    "recognitionSnapshot": {
+      "level": "特别困难",
+      "tag": "一类贫困生",
+      "score": 93,
+      "confirmedRecognitionRuleIds": [
+        "R01",
+        "R36"
+      ],
+      "confirmedRecognitionLabels": [
+        "脱贫家庭学生",
+        "2人（含本人）及以上在上学"
+      ]
+    },
+    "eligibilityResult": {
+      "eligible": true,
+      "reason": "不按贫困等级和认定类型筛选。",
+      "grantTier": null
+    },
+    "materials": [
+      "成绩排名证明",
+      "录取证明"
+    ],
+    "status": "审核通过",
+    "comment": "来自小程序政策详情页",
+    "submittedAt": "2026-04-03T06:45:34.690Z",
+    "reviewedAt": "2026-04-04T06:46:03.476Z",
+    "reviewComment": "符合学院评选条件，予以通过。",
+    "applySummary": {
+      "personalIntro": "",
+      "familySituation": "",
+      "usagePlan": ""
+    },
+    "attachments": []
+  },
+  {
+    "id": "scholarship-003",
+    "studentId": "student-003",
+    "scholarshipId": "national-grant",
+    "scholarshipName": "国家助学金",
+    "scholarshipType": "助学金",
+    "academicYear": "2025-2026",
+    "recognitionSnapshot": {
+      "level": "困难",
+      "tag": "二类贫困生",
+      "score": 56,
+      "confirmedRecognitionRuleIds": [
+        "R17",
+        "R24",
+        "R36"
+      ],
+      "confirmedRecognitionLabels": [
+        "家庭遭受重大自然灾害，受灾严重（一年以上两年以内）",
+        "父母均没有工作（不含农村种植户或养殖户）",
+        "2人（含本人）及以上在上学"
+      ]
+    },
+    "eligibilityResult": {
+      "eligible": true,
+      "reason": "当前按二类贫困生分档发放，预计金额为3700元/人/学年。",
+      "grantTier": {
+        "label": "二类贫困生",
+        "amount": "3700元/人/学年"
+      }
+    },
+    "materials": [
+      "困难认定结果",
+      "学籍证明"
+    ],
+    "status": "审核通过",
+    "comment": "申请国家助学金",
+    "submittedAt": "2026-04-02T10:10:00.000Z",
+    "reviewedAt": "2026-04-05T10:00:00.000Z",
+    "reviewComment": "按照二类贫困生标准发放。",
+    "applySummary": {
+      "personalIntro": "",
+      "familySituation": "",
+      "usagePlan": ""
+    },
+    "attachments": []
+  },
+  {
+    "id": "scholarship-004",
+    "studentId": "student-005",
+    "scholarshipId": "lihanhun-aid",
+    "scholarshipName": "李汉魂助学金",
+    "scholarshipType": "助学金",
+    "academicYear": "2025-2026",
+    "recognitionSnapshot": {
+      "level": "一般困难",
+      "tag": "三类贫困生",
+      "score": 35,
+      "confirmedRecognitionRuleIds": [
+        "R20"
+      ],
+      "confirmedRecognitionLabels": [
+        "父母一方抚养"
+      ]
+    },
+    "eligibilityResult": {
+      "eligible": true,
+      "reason": "只要求已认定为贫困生，不按贫困等级细分。",
+      "grantTier": null
+    },
+    "materials": [
+      "困难认定结果",
+      "成绩单"
+    ],
+    "status": "待审核",
+    "comment": "希望获得学年资助，缓解生活压力。",
+    "submittedAt": "2026-04-06T14:12:00.000Z",
+    "reviewedAt": "",
+    "reviewComment": "",
+    "applySummary": {
+      "personalIntro": "",
+      "familySituation": "",
+      "usagePlan": ""
+    },
+    "attachments": []
+  },
+  {
+    "id": "scholarship-005",
+    "studentId": "student-004",
+    "scholarshipId": "temporary-hardship-subsidy",
+    "scholarshipName": "临时困难补贴",
+    "scholarshipType": "助学金",
+    "academicYear": "2025-2026",
+    "recognitionSnapshot": {
+      "level": "未认定",
+      "tag": "未认定",
+      "score": 0,
+      "confirmedRecognitionRuleIds": [],
+      "confirmedRecognitionLabels": []
+    },
+    "eligibilityResult": {
+      "eligible": true,
+      "reason": "只对重大疾病、严重受灾、重大意外、突发严重困难等指定认定类型开放。",
+      "grantTier": null
+    },
+    "materials": [
+      "情况说明"
+    ],
+    "status": "驳回",
+    "comment": "申请临时困难补贴",
+    "submittedAt": "2026-03-31T15:20:00.000Z",
+    "reviewedAt": "2026-04-01T16:30:00.000Z",
+    "reviewComment": "当前提交材料未能体现突发严重困难情形。",
+    "applySummary": {
+      "personalIntro": "",
+      "familySituation": "",
+      "usagePlan": ""
+    },
+    "attachments": []
+  }
+]

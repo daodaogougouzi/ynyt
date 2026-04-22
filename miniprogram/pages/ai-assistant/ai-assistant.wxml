@@ -1,0 +1,144 @@
+<view class="ai-assistant-page">
+  <navigation-bar back="{{true}}" background="#F5F7FA" color="#2D3A4B" title="AI助手"></navigation-bar>
+
+  <scroll-view class="ai-assistant-scroll" scroll-y>
+    <view class="container-page">
+      <view class="card">
+        <view class="section-title">{{assistantIntroTitle}}</view>
+        <text class="helper-tip">{{assistantIntroText}}</text>
+      </view>
+
+      <view class="card" wx:if="{{!hasStudentSession}}">
+        <view class="section-title">登录后可用</view>
+        <text class="empty-tip">登录后可选择奖助项目并生成材料草稿。</text>
+        <button class="primary-btn" bindtap="openLogin">前往登录</button>
+      </view>
+
+      <block wx:if="{{hasStudentSession}}">
+        <view class="card" wx:if="{{student}}">
+          <view class="section-title">当前认定状态</view>
+          <view class="student-tag-row">
+            <text class="tag">{{student.currentRecognitionStatus}}</text>
+            <text class="tag {{student.currentRecognitionLevel === '未认定' ? '' : 'tag-success'}}">{{student.currentRecognitionLevel}}</text>
+          </view>
+          <text class="meta-line">认定等级：{{student.currentRecognitionLevel}}</text>
+        </view>
+
+        <view class="card">
+          <view class="section-title">草稿生成表单</view>
+          <view wx:if="{{loading}}" class="empty-tip">正在加载可申请项目...</view>
+          <view wx:elif="{{draftScholarships.length > 0}}" class="draft-form">
+            <view class="form-group">
+              <text class="form-label">目标奖助项目</text>
+              <picker mode="selector" range="{{draftScholarships}}" range-key="name" value="{{draftScholarshipIndex}}" bindchange="onDraftScholarshipChange">
+                <view class="form-picker">{{draftScholarships[draftScholarshipIndex].name}}</view>
+              </picker>
+            </view>
+
+            <view class="form-group">
+              <text class="form-label">个人学习与成长概况</text>
+              <textarea
+                class="form-textarea"
+                data-field="personalSummary"
+                value="{{draftForm.personalSummary}}"
+                placeholder="例如：近两学期平均绩点、参加竞赛/志愿服务经历。"
+                bindinput="onDraftFormInput"
+              ></textarea>
+            </view>
+
+            <view class="form-group">
+              <text class="form-label">家庭困难情况说明</text>
+              <textarea
+                class="form-textarea"
+                data-field="hardshipNote"
+                value="{{draftForm.hardshipNote}}"
+                placeholder="例如：家庭收入变化、疾病支出、突发事件影响。"
+                bindinput="onDraftFormInput"
+              ></textarea>
+            </view>
+
+            <view class="form-group">
+              <text class="form-label">能力标签（逗号分隔）</text>
+              <input
+                class="form-input"
+                data-field="strengths"
+                value="{{draftForm.strengths}}"
+                placeholder="如：沟通, 组织协调, Excel"
+                bindinput="onDraftFormInput"
+              />
+            </view>
+
+            <view class="form-group no-margin">
+              <text class="form-label">资助使用计划</text>
+              <textarea
+                class="form-textarea"
+                data-field="goal"
+                value="{{draftForm.goal}}"
+                placeholder="例如：主要用于教材资料、实践课程和基本生活开支。"
+                bindinput="onDraftFormInput"
+              ></textarea>
+            </view>
+
+            <button class="primary-btn" bindtap="onGenerateDraft" disabled="{{draftSubmitting}}">
+              {{draftSubmitting ? '正在生成草稿...' : '生成材料草稿'}}
+            </button>
+          </view>
+          <text wx:else class="empty-tip">当前暂无可用于生成草稿的开放项目。</text>
+        </view>
+
+        <view class="card">
+          <view class="section-title">AI 对话助手</view>
+          <text class="helper-tip">需要继续追问材料填写、措辞润色或补件建议时，可进入全屏对话页。</text>
+          <button class="secondary-btn" bindtap="openAiAssistantRoom">进入全屏 AI 助手</button>
+        </view>
+
+        <view class="card" wx:if="{{latestDraft}}">
+          <view class="draft-head">
+            <text class="draft-title">最新草稿：{{latestDraft.scholarshipName}}</text>
+            <text class="draft-time">{{latestDraft.createdAt}}</text>
+          </view>
+
+          <view class="draft-block" wx:if="{{latestDraft.requiredChecklist.length > 0}}">
+            <text class="draft-block-title">建议材料清单</text>
+            <text class="draft-line" wx:for="{{latestDraft.requiredChecklist}}" wx:key="*this">• {{item}}</text>
+          </view>
+
+          <view class="draft-block" wx:if="{{latestDraft.missingMaterialsByPriority && latestDraft.missingMaterialsByPriority.required.length > 0}}">
+            <text class="draft-block-title">必交待补材料</text>
+            <text class="draft-line warn" wx:for="{{latestDraft.missingMaterialsByPriority.required}}" wx:key="*this">• {{item}}</text>
+          </view>
+
+          <view class="draft-block" wx:if="{{latestDraft.missingMaterialsByPriority && latestDraft.missingMaterialsByPriority.recommended.length > 0}}">
+            <text class="draft-block-title">建议补充材料</text>
+            <text class="draft-line" wx:for="{{latestDraft.missingMaterialsByPriority.recommended}}" wx:key="*this">• {{item}}</text>
+          </view>
+
+          <view class="draft-block" wx:if="{{latestDraft.nextAction}}">
+            <text class="draft-block-title">下一步建议</text>
+            <text class="draft-line next-action">{{latestDraft.nextAction}}</text>
+          </view>
+
+          <view class="draft-block" wx:if="{{latestDraft.tips.length > 0}}">
+            <text class="draft-block-title">提交提醒</text>
+            <text class="draft-line" wx:for="{{latestDraft.tips}}" wx:key="*this">• {{item}}</text>
+          </view>
+
+          <view class="draft-text-wrap">
+            <text class="draft-text">{{latestDraft.draftText}}</text>
+          </view>
+          <button class="secondary-btn" bindtap="onCopyDraft">复制草稿内容</button>
+        </view>
+
+        <view class="card" wx:if="{{draftHistory.length > 0}}">
+          <text class="draft-block-title">最近草稿记录</text>
+          <view class="history-item" wx:for="{{draftHistory}}" wx:key="id">
+            <text class="history-title">{{item.scholarshipName}}</text>
+            <text class="history-time">{{item.createdAt}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+
+  <ai-chat id="assistantAiChat" scene="material-draft" entry-only="{{true}}" bindinvite="openAiAssistantRoom"></ai-chat>
+</view>

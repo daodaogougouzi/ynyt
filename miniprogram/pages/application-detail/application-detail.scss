@@ -1,0 +1,67 @@
+.detail-page {
+  min-height: 100vh;
+  background: #f5f7fa;
+}
+
+.detail-scroll {
+  height: calc(100vh - 88rpx);
+}
+
+.status-row {
+  display: flex;
+  gap: 12rpx;
+  flex-wrap: wrap;
+  margin-bottom: 12rpx;
+}
+
+.meta-line,
+.list-item,
+.note-text,
+.review-text {
+  display: block;
+  color: #4b5b71;
+  font-size: 24rpx;
+  line-height: 1.7;
+  margin-bottom: 8rpx;
+}
+
+.attachment-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12rpx;
+  border: 1rpx solid #e8edf4;
+  border-radius: 12rpx;
+  padding: 14rpx 16rpx;
+  margin-bottom: 10rpx;
+}
+
+.attachment-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.attachment-name,
+.attachment-size {
+  display: block;
+  font-size: 23rpx;
+  line-height: 1.6;
+}
+
+.attachment-name {
+  color: #2d3a4b;
+  word-break: break-all;
+}
+
+.attachment-size {
+  color: #8a94a6;
+}
+
+.attachment-link {
+  margin-top: 0;
+  width: 140rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  font-size: 22rpx;
+  padding: 0;
+}
